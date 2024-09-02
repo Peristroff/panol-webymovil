@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    background-color: #A6B37D;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    height: 75px;
+    padding-bottom: 0px;
+    padding-top: 5px;
+}
+
+#storeLogo img{
+    border-radius: 100px;
+    height: 60px;
+    width: 180px;
+
+}
+
+
+
