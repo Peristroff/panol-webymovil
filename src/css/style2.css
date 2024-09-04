@@ -67,7 +67,7 @@ body {
   border: 1px solid #ddd;
   padding: 0 0 0 50px;
   margin-right: 10%;
-  /* display: flex; */
+  display: flex;
 }
 
 .container2 ul {
@@ -85,22 +85,20 @@ body {
   margin-top: 4%;
 }
 
-.container2 p{
-  display: flex;
-  flex-direction: row;
-}
-
-.container2 ul{
-  flex-direction: row;
-}
-
 .container3{
+  display: inline-flex;
+  flex-wrap: wrap;
   border: 1px solid #ddd;
-  margin-left: 25%;
+  margin-left: 22%;
+  padding: 5px;
+  object-fit: contain;
 }
 
-#amongus1{
-  /* align-items: center; */
-  /* display: flex; */
-	/* flex-direction: column; */
+.container3 img{
+  display: flex;
+  margin-right: 10px;
+}
+
+.container4 {
+  width: 200px;
 }
