@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./productoSeleccionado.css">
 </head>
 <body>
-    <nav>
+    <header>
         <div class="item">
             <img src="../img/Hamburger_icon.png" alt="" srcset="" height="50px" width="50px">
         </div>
@@ -16,17 +16,37 @@
         <div id="userBubble" class="item">
             <img src="../img/user.png" alt="" srcset="" height="50px" width="50px">
         </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#vistaCrearSolicitud">Crear solicitud</a></li>
+            <li><a href="#vistaHistorialSolicitudes">Historial de solicitudes</a></li>
+            <li><a href="#vistaObjetosPedidos">Objetos solicitados</a></li>
+            <li><a href="#vistaConfiguracionUsuario">Configuración del Usuario</a></li>
+        </ul>
     </nav>
+
     <section>
-        <div id="productImage">
-            <img src="../img/panuelo.jpg" alt="" srcset="" height="300px" width="300px">
+        <div class="product">
+            <div id="productImage">
+                <img src="https://http.cat/images/404.jpg" alt="" srcset="" height="300px" width="300px">
+                <h3>Gato roñoso</h3>
+            </div>
+            <div id="productInfo">
+                <h1>Gato roñoso</h1>
+                <p>Marca: Marca</p>
+                <p>Stock: 5</p>
+                <button id="inputButton">Pedir</button>
+            </div>
         </div>
-        <div id="productInfo">
-            <h1>Pañuelo</h1>
-            <p>Descripcion del producto</p>
-            <p>Marca: Marca</p>
-            <p>Precio: $100</p>
-            <button>Comprar</button>
+        <div id="productDetails">
+            <h3>Características:</h3>
+            <ul>
+                <li>Característica impresionante</li>
+                <li>RTX 4090Kriptonita</li>
+                <li>Hecho en la segunda fundación.</li>
+            </ul>
         </div>
     </section>
 </body>

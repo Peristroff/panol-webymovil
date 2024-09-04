@@ -3,14 +3,12 @@ body {
     padding: 0;
 }
 
-nav{
+header{
     background-color: #A6B37D;
-    padding: 10px;
     display: flex;
     justify-content: space-between;
     height: 75px;
-    padding-bottom: 0px;
-    padding-top: 5px;
+    padding: 5px 10px 0;
 }
 
 #storeLogo img{
@@ -19,6 +17,64 @@ nav{
     width: 180px;
 
 }
+div img{
+    cursor: pointer;
+}
+nav{
+    display: flex;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 200px;
+    padding: 20px;
+    margin-top: 100px;
+    top: 0;
+    left: 0;
+}
 
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
 
+nav ul li {
+    margin: 10px;
+}
 
+section {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+.product{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+#productImage img{
+    width: 350px;
+    height: 350px;
+    margin-right: 20px;
+}
+#inputButton{
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#productInfo{
+    margin-left: 50px;
+}
+
+#productDetails{
+    margin-top: 20px;
+}
+
+#productImage{
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+
+}
