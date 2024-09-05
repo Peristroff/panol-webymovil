@@ -15,7 +15,7 @@ header{
     background-color: rgba(139, 69, 19, 0.8); /* Color café con transparencia */
     display: flex;
     justify-content: space-between;
-    height: 75px;
+    height: 15vh;
     padding: 5px 10px 0;
 }
 
@@ -36,7 +36,7 @@ nav{
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 25vh;
-    padding: 10px;
+    padding: 0;
     margin-top: 100px;
     top: 0;
     left: 0;
@@ -47,7 +47,8 @@ nav{
 
 nav ul {
     list-style-type: none;
-    margin: 10px;
+    margin: 2vh;
+    padding-left: 0;
 }
 
 nav ul li {
@@ -99,26 +100,32 @@ section {
 }
 
 #inputButton{
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+    padding: 10px;
+    background-color: floralwhite;
+    color: black;
+    text-decoration: none;
     border-radius: 5px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+#inputButton:hover{
+    transform: scale(1.1);
+    background-color: rgba(139, 69, 19);
 }
 
 #productInfo{
     margin-left: 50px;
     background-color: rgba(255, 255, 255, 0.7);
     width: 100vh;
-    height: 70vh;
+    height: fit-content;
     display: inline-list-item;
     justify-content: center;
     text-align: center;
 }
 
 #productDetails{
-    margin-top: 20px;
+    margin-top: 3vh;
+    height: fit-content;
     display: flex;
     text-align: left;
 }
@@ -127,13 +134,18 @@ section {
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     display: list-item;
     justify-content: center;
-    padding: 1vh;
+    padding: 5vh 0;
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
+
 }
 
 section div{
-
     border-radius: 10px;
     padding: 1.5vh;
+    margin: 1vh;
 }
+
+
+
+
