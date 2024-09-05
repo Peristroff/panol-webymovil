@@ -1,0 +1,111 @@
+/* bodeguita.css */
+
+/* Establece el estilo global del cuerpo de la página */
+/* bodeguita.css */
+
+body {
+    font-family: Arial, sans-serif; /* Fuente sencilla y legible */
+    margin: 0;
+    padding: 0;
+    /* Verifica que el nombre de la imagen y la ruta sean correctos */
+    background-image: url('../img/cositas.jpg'); /* Imagen de fondo */
+    background-size: cover; /* Cubre toda la pantalla */
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita si es pequeña */
+    background-attachment: fixed; /* Fija la imagen de fondo al hacer scroll */
+    color: rgb(0, 0, 0); /* Color de texto blanco para contraste */
+}
+
+/* Otros estilos */
+
+
+/* Estilo para la cabecera */
+header {
+    background-color: rgba(139, 69, 19, 0.8); /* Color café con transparencia */
+    padding: 10px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo del título principal en la cabecera */
+.main-title {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Estilo del icono de perfil en la cabecera */
+.profile-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Estilo del menú de tres barras */
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+}
+
+.menu-icon span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: rgb(255, 255, 255);
+}
+
+/* Estilo de la sección de perfil */
+.profile-section {
+    margin: 20px auto; /* Auto en los márgenes laterales para centrar horizontalmente */
+    padding: 20px auto;
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco con transparencia */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para dar efecto de profundidad */
+    width: 50%; /* Ajuste del ancho para centrar mejor */
+    max-width: 600px;
+    text-align: left
+    ; /* Limitar el ancho máximo */
+}
+
+/* Estilo del subtítulo dentro de la sección de perfil */
+.profile-section h2 {
+    color: #333;
+    text-align: center; /* Centra el subtítulo */
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.774);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-details p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.profile-details span {
+    font-weight: bold;
+}
+
+.status.enabled {
+    color: green;
+}
+
+.status.disabled {
+    color: rgb(255, 0, 0);
+}
+
+
+.pablito{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
