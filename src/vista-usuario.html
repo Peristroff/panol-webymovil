@@ -7,6 +7,20 @@
 <link rel="stylesheet" href="css/style2.css">
 </head>
 <body>
+    <!-- Cabecera -->
+    <header>
+        <div class="item">
+            <img src="img/Hamburger_icon.png" alt="" srcset="" height="50px" width="50px">
+        </div>
+        <div class="item" id="storeLogo">
+            <img src="img/logo.png" alt="" srcset="" height="150px" width="300px">
+        </div>
+        <div id="userBubble" class="item">
+            <img src="img/user.png" alt="" srcset="" height="50px" width="50px">
+        </div>
+    </header>
+
+    <!-- Barra lateral -->
     <div class="sidenav">
         <a href="404.html">Crear Solicitud</a>
         <a href="404.html">Historial de solicitudes</a>
@@ -14,30 +28,35 @@
         <a href="404.html">Configuración de usuario</a>
     </div>
 
+    <!-- Contenido -->
     <div class="content">
-        <img src="img/Logo_prototipo2.png" alt="" srcset="" height="200px" width="400px">
-
+        <!-- Barra de búsqueda -->
         <div class="search">
             <form action="/search" method="GET">
                 <input type="text" name="query" placeholder="Buscar..." height="150px" width="300px">
                 <input type="submit" value="Buscar">
-            </form>    
+            </form>
         </div>
         
+        <!-- Cabecera de filtros y categorías -->
         <div class="container">
             <h3>Filtros</h3>
-            <h3>Categorias</h3>
+            <h3>Categorías</h3>
         </div>
-        <div class="container">
-            <p>Disponibilidad&emsp;</p><br>
-        </div>
-        <div class="container">
-            <select>
-                <option value="Disponible">Disponible</option>
-                <option value="Reservado">Ya reservado</option>
-                <option value="NoDisponible">No disponible</option>
-            </select>
 
+        <!-- Selector de disponibilidad -->
+        <div class="container">
+            <div class="container4"> 
+                <p>Disponibilidad&emsp;</p>
+                <select>
+                    <option value="Disponible">Disponible</option>
+                    <option value="Reservado">Ya reservado</option>
+                    <option value="NoDisponible">No disponible</option>
+                </select>
+            </div>
+                
+
+            <!-- Selección de categorías -->
             <div class="category">
                 <a href="404.html">Computadores</a>
                 <a href="404.html">Redes</a>
@@ -45,7 +64,10 @@
                 <a href="404.html">Video</a>
             </div>
         </div>
+
+        <!-- Contenedor secundario -->
         <div class="container2">
+            <!-- Filtros de marcas -->
             <div class="container4">
                 <p>&emsp;Marca</p>
                 <ul>
@@ -55,12 +77,25 @@
                     <li><input type="checkbox" name="Chancho" value="Chancho">Chancho</li>
                 </ul>
             </div>
+
+        <!-- Seleccion de piezas -->
         <div id="amongus1" class="container3">
-            <img src="img/notebooks/1.jpg" alt="" srcset="">
-            <img src="img/notebooks/2.jpg" alt="" srcset="">
-            <img src="img/notebooks/3.jpg" alt="" srcset="">
-            <img src="img/notebooks/4.jpg" alt="" srcset="">
-        </div>
+            <div class="item">
+                <img src="img/notebooks/1.jpg" alt="" srcset="">
+                <p>Notebook HP</p>
+            </div>
+            <div class="item">
+                <img src="img/notebooks/2.jpg" alt="" srcset="">
+                <p>Notebook Asus</p>
+            </div>
+            <div class="item">
+                <img src="img/notebooks/4.jpg" alt="" srcset="">
+                <p>Notebook Gear</p>
+            </div>
+            <div class="item">
+                <img src="img/notebooks/4.jpg" alt="" srcset="">
+                <p>Notebook Chancho</p>
+            </div>
         </div>
         
     </div>
