@@ -18,7 +18,7 @@ Hecha la solicitud el solicitante se debe presentar en pañol y el pañolero bus
 Posteriormente al utilizar los recursos el solicitante alumno o docente deberá devolver en ventanilla estos recursos físicamente al pañolero. El pañolero verificará el estado de los materiales como en buen estado u otra opción razonable y registrará la devolución de estos. Si hubiera un recurso faltante en la devolución deberá quedar el registro de su no devolución o una observación de su estado defectuoso. Al no existir retorno de un recurso se debe aplicar automáticamente el descuento del stock original en el inventario de pañol. Posteriormente si existiera alguna reposición se debe registrar el ingreso de recurso y actualizar el stock de inventario.
 
 # REQUERIMIENTOS FUNCIONALES PRINCIPALES
-RF.1 El sistema debe permitir autenticar y permitir el ingreso de sus usuarios.
+RF. 1 El sistema debe permitir autenticar y permitir el ingreso de sus usuarios.
 
 RF. 2 El sistema debe permitir administrar los Usuarios en el Sistema y asignar perfiles, crear usuarios y cargar datos personales. Permitir la alta y baja o modificación de datos.
 
@@ -28,7 +28,7 @@ RF. 4 Permitir administrar el inventario de Pañol. Registrar los productos o Re
 
 RF. 5  Crear Solicitudes: Por medio del Sistema Web se debe permitir al alumno o docente crear y guardar en su cuenta una solicitud de uno o varios recursos de Pañol, de sus Productos, equipos, instrumentos o herramientas de trabajo que se necesiten para su actividad a desarrollar en la clase.
 
-RF.6 Consultar y Validar solicitudes: En el Sistema Local el pañolero podrá consultar y validar las solicitudes para posteriormente pasen a ser un registro de préstamo generado al pasarlas a registro de préstamo.
+RF. 6 Consultar y Validar solicitudes: En el Sistema Local el pañolero podrá consultar y validar las solicitudes para posteriormente pasen a ser un registro de préstamo generado al pasarlas a registro de préstamo.
 
 RF. 7 Administrar Solicitudes: El pañolero en el Sistema Local en base a una Solicitud Web de un recurso de pañol realizada por parte de un usuario Alumno o docente, se deberá revisar el detalle de la solicitud, editar la solicitud para validar los recursos reales en stock, marcar los que sean de préstamo disponible en ese momento y luego registrar la solicitud como préstamo.
 
@@ -42,7 +42,8 @@ RF.10 Generar Ticket de Respaldo de Préstamos y Devolución a cuentas de Usuari
 
 RF.11 Entregar Alerta automática de Morosos en pañol a Correo de los usuarios que administran Pañol.
 
-RF.12 Generar alertas automáticas de baja cantidad de productos en stock en pañol.
+> Este requerimiento no es necesario:
+> RF.12 Generar alertas automáticas de baja cantidad de productos en stock en pañol.
 
 RF.13 Entregar Reportes detallados útiles para la Gestión de pañol. En Requerimientos de Sistema se detallan su tipo.
 
@@ -56,37 +57,17 @@ RF.14 Bloquear a alumnos morosos para que no puedan generar solicitudes en base 
 | ID Caso de Uso | Descripción y trazabilidad |Actores  involucrados|
 |:-----------:|:-----------:|:-----------:|
 | CU1 | Autenticar usuario RF 1 | Jefe Carrera Coordinador Pañolero Alumno|
-| CU2 |	Administrar Usuarios; Pañoleros y Coordinadores | RF 2	Jefe Carrera Coordinador |
-| Administrar Usuarios Alumnos y Docentes|
-RF 3	Jefe Carrera
-Coordinador
-CU3	Administrar Inventario Pañol
-RF 4	Jefe Carrera
-Coordinador
-Pañolero
-CU4	Administrar Solicitudes  a Pañol
-RF 7
-Alumno
-Docente
-Crear Solicitudes por medio del Sistema Web
-RF 5	Pañolero
-Coordinador
-Consultar Solicitudes por medio del Sistema Web y de Escritorio
-RF 6	Pañolero
-Coordinador
-Validar y Editar Solicitudes para registrarlas como Préstamo RF 7	Pañolero
-Coordinador
-Alumno
-Docente
-CU5	Administrar Préstamos. RF8, RF9	Coordinador
-Pañolero
-Generar Ticket de Respaldo de Préstamos y Devolución. RF10
-Bloquear a alumnos Morosos automáticamente según regla que determine el equipo de desarrollo. RF14	Sistema
-CU6	Generar Alertas automáticas de Usuarios Morosos. RF11
-Generar Alertas automáticas por déficit de stock. RF12	Sistema
-CU7	Generar reportes Detallados. RF 13	Jefe Carrera
-Coordinador
-Pañolero
+| CU2 |	Administrar Usuarios; Pañoleros y Coordinadores RF 2 | Jefe Carrera Coordinador |
+| CU2 | Administrar Usuarios Alumnos y Docentes RF 3	| Jefe Carrera Coordinador |
+| CU3 |	Administrar Inventario Pañol RF 4 | Jefe Carrera Coordinador Pañolero |
+| CU4 |	Administrar Solicitudes  a Pañol RF 7 | Alumno Docente | 
+| CU4 | Crear Solicitudes por medio del Sistema Web RF 5 | Pañolero Coordinador |
+| CU4 | Consultar Solicitudes por medio del Sistema Web y de Escritorio RF 6 | Pañolero Coordinador |
+| CU4 | Validar y Editar Solicitudes para registrarlas como Préstamo RF 7 | Pañolero Coordinador Alumno Docente |
+| CU5 | Administrar Préstamos. RF8, RF9 |Coordinador Pañolero |
+| CU5 | Generar Ticket de Respaldo de Préstamos y Devolución. RF10. Bloquear a alumnos Morosos automáticamente según regla que determine el equipo de desarrollo. RF14	| Sistema |
+| CU6 |	Generar Alertas automáticas de Usuarios Morosos. RF11 Generar Alertas automáticas por déficit de stock. RF12 | Sistema |
+| CU7 | Generar reportes Detallados. RF 13 | Jefe Carrera Coordinador Pañolero |
 
 
 # Diagrama de casos de uso
@@ -150,7 +131,8 @@ RS.1 Ingresar al Sistema a los Usuarios Alumnos en forma individual por medio de
 
 RS.2 Que el sistema permita importar y cargar una DATA mínima inicial en la base de datos de Usuarios Alumnos en forma masiva que se encuentre recopilada en un archivo en formato Excel o Access que posea los siguientes campos:
 
-|Rut | Apellido 1| Apellido 2|Nombre 1|Carrera |Teléfono| Correo Alumno |
+- | Rut | Apellido 1 | Apellido 2 | Nombre 1 | Carrera | Teléfono | Correo Alumno |
+
 Nota: Al cargar los usuarios se genera la clave del usuario automáticamente, siendo el identificador de usuario su RUT.
 
 RS.3 Bloquear o desbloquear a usuarios por permanecer morosos a pesar de que cuenten con alguna morosidad registrada en el sistema con un campo de texto que explique en detalle el motivo cuando el usuario genere una solicitud.
@@ -161,7 +143,7 @@ RS.4 Generar reportes con los mismos atributos del Jefe de Carrera.
 
 RS.1 Ingresar productos al sistema de inventario por medio de interfaz gráfica que permita además, modificar y darlos de baja catalogándolos según las categorías dispuesta por el sistema:
 
-|ID Producto| Nombre | Categoría | Detalle| Cantidad | Imagen|
+- | ID Producto | Nombre | Categoría | Detalle | Cantidad | Imagen |
 
 - Es sólo una Imagen asociada al producto y no debe exceder los 150x100 pixeles de tamaño.
 
