@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Table, Button, Form, Container, Row, Col } from 'react-bootstrap';
-import './AdministrarItems.css'; // Archivo CSS para personalización
+import './administrarItems.css'; // Archivo CSS para personalización
 
 function AdministrarItems() {
     const [items, setItems] = useState([
         { id: 1, name: 'Producto Juan', date: '01/10/23', category: 'Categoría 1', stock: 21, price: '15000' },
         { id: 2, name: 'Producto El', date: '10/09/23', category: 'Categoría 2', stock: 11, price: '25000' },
         { id: 3, name: 'Producto Sucio', date: '15/08/23', category: 'Categoría 3', stock: 69, price: '30000' },
+        { id: 3, name: 'Producto Cochino', date: '15/08/23', category: 'Categoría 3', stock: 69, price: '30000' },
+        { id: 3, name: 'Producto Puerco', date: '15/08/23', category: 'Categoría 3', stock: 69, price: '30000' },
 
     ]);
 

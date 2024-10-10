@@ -1,5 +1,7 @@
 .custom-navbar {
     padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
 }
 
 .navbar-brand img {
@@ -14,9 +16,4 @@
 
 .nav-link:hover {
     color: #007bff;
-}
-
-.nav {
-    display: flex;
-    justify-content: space-between;
 }

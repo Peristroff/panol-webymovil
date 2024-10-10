@@ -8,8 +8,26 @@ h2 {
 
 button {
     margin-right: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #b57f67; /* Change to your desired color */
+    color: white; /* Optional: Change text color on hover */
 }
 
 table {
     margin-top: 20px;
+}
+.table th {
+    background-color: #b57f67 !important;
+    color: white;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #C29F87 !important;
+}
+
+.items-admin-container{
+    margin: 2rem;
 }
