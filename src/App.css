@@ -12,12 +12,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-}
-
-
-.items-admin-container .container{
-
 }
 
 .navbar a {

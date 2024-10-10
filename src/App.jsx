@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Routes, Route, Link } from 'react-router-dom';
 import AdministrarItems from "./components/administrarItems/administrarItems.jsx";
 import Autenticacion from './components/autenticación/autenticacion.jsx';
+import AdministrarPrestamos from './components/administrarPrestamos/administrarPrestamos.jsx';
 import NavBarPanol from "./components/navbar/navbar.jsx";
 import './App.css'
 
@@ -15,6 +16,7 @@ function App() {
         <Routes>
             <Route path="/" element={<AdministrarItems />}/>
             <Route path="/autenticacion" element={<Autenticacion />}/>
+            <Route path="/administrarPrestamos" element={<AdministrarPrestamos />}/>
         </Routes>
     </>
   )

@@ -42,10 +42,11 @@ RF.10 Generar Ticket de Respaldo de Préstamos y Devolución a cuentas de Usuari
 
 RF.11 Entregar Alerta automática de Morosos en pañol a Correo de los usuarios que administran Pañol.
 
-> Este requerimiento no es necesario:
+> Preguntar si es necesario:
 > RF.12 Generar alertas automáticas de baja cantidad de productos en stock en pañol.
 
-RF.13 Entregar Reportes detallados útiles para la Gestión de pañol. En Requerimientos de Sistema se detallan su tipo.
+> Este requerimiento no es necesario:
+> RF.13 Entregar Reportes detallados útiles para la Gestión de pañol. En Requerimientos de Sistema se detallan su tipo.
 
 RF.14 Bloquear a alumnos morosos para que no puedan generar solicitudes en base a alguna regla por definir en base a tiempo, tipo y cantidad de recursos que se defina en virtud de las necesidades del pañol y la Escuela.
 
