@@ -3,6 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import AdministrarItems from "./components/administrarItems/administrarItems.jsx";
 import Autenticacion from './components/autenticación/autenticacion.jsx';
 import NavBarPanol from "./components/navbar/navbar.jsx";
+import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure this line is present
 import './App.css'
 
 function App() {

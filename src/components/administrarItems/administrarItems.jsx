@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Table, Button, Form, Container, Row, Col } from 'react-bootstrap';
-import './administrarItems.css'; // Archivo CSS para personalización
+import './administrarItems.css';
 
 function AdministrarItems() {
     const [items, setItems] = useState([
@@ -32,7 +32,7 @@ function AdministrarItems() {
             <Row>
                 <Col>
                     <h2 className="text-center">Administración de Ítems</h2>
-                    <Button variant="primary" onClick={handleCreateNewItem} className="mb-3">
+                    <Button variant="primary" id="addButton" onClick={handleCreateNewItem} className="mb-3">
                         Crear Nuevo Ítem
                     </Button>
                     <Table striped bordered hover>
@@ -51,10 +51,10 @@ function AdministrarItems() {
                         {items.map((item) => (
                             <tr key={item.id}>
                                 <td>
-                                    <Button variant="info" onClick={() => handleEdit(item.id)} className="mr-2">
+                                    <Button variant="outline-warning" onClick={() => handleEdit(item.id)} className="mr-2">
                                         Editar
                                     </Button>
-                                    <Button variant="danger" onClick={() => handleDelete(item.id)}>
+                                    <Button variant="outline-danger" onClick={() => handleDelete(item.id)}>
                                         Eliminar
                                     </Button>
                                 </td>
