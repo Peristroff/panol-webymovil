@@ -1,14 +1,15 @@
 import React from 'react';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Img from '../img/logo.jpg';
 import './navbar.css';
 
 function NavBarPanol() {
     return (
-        <Navbar bg="light" expand="lg" className="mb-4 custom-navbar">
+        <Navbar  expand="lg" className="mb-4 custom-navbar">
             <Navbar.Brand as={Link} to="/">
                 <img
-                    src="../img/logo.jpg"
+                    src="https://w7.pngwing.com/pngs/1013/651/png-transparent-national-secondary-school-computer-icons-escuela-school-angle-building-logo-thumbnail.png"
                     alt="Logo Pañol"
                     width="40"
                     height="40"
