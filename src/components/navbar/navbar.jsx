@@ -31,7 +31,7 @@ function NavBarPanol() {
                     </Nav.Link>
                 </Nav>
                 <Button variant="outline-light" as={Link} to="/login" className="ml-3 logout-button">
-                    Logout
+                    Cerrar Sesión
                 </Button>
             </Navbar.Collapse>
         </Navbar>

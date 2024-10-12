@@ -1,18 +1,19 @@
 .custom-navbar {
-    background-color: #004085;
+    font-family: 'Times New Roman', serif;
+    background-color: #7ad9dc;
     padding: 0.75rem 1.5rem;
     border-radius: 12px;
     transition: background-color 0.3s ease;
 }
 
 .custom-navbar:hover {
-    background-color: #0056b3;
+    background-color: #2f7d7a;
 }
 
 .navbar-brand-custom {
     display: flex;
     align-items: center;
-    color: white;
+    color: rgb(255, 253, 253);
     font-weight: bold;
     font-size: 22px;
     font-family: 'Times New Roman', serif;
@@ -24,13 +25,14 @@
 }
 
 .logo:hover {
+    font-family: 'Times New Roman', serif;
     transform: scale(1.2);
     opacity: 1;
 }
 
 .logo-text {
     margin-left: 12px;
-    color: white;
+    color: #ffffff;
     font-size: 24px;
     font-family: 'Times New Roman', serif;
     letter-spacing: 1.5px;
@@ -38,7 +40,7 @@
 
 .nav-item-custom {
     font-size: 18px;
-    color: white;
+    color: #539395;
     text-transform: uppercase;
     letter-spacing: 0.8px;
     margin-right: 20px;
@@ -49,19 +51,21 @@
 }
 
 .nav-item-custom:hover {
-    color: #ffcc00;
+    font-family: 'Times New Roman', serif;
+    color: #000000;
     font-weight: bold;
     transform: translateY(-3px);
 }
 
 .nav-item-custom::after {
+    font-family: 'Times New Roman', serif;
     content: '';
     position: absolute;
     width: 0;
     height: 3px;
     bottom: 0;
     left: 0;
-    background-color: #ffcc00;
+    background-color: #ffffff;
     transition: width 0.4s ease;
 }
 
@@ -70,16 +74,17 @@
 }
 
 .logout-button {
-    background-color: transparent;
+     font-family: 'Times New Roman', serif;
+     background-color: transparent;
     border: 2px solid #ffcc00;
     color: #ffcc00;
     font-size: 16px;
-    font-family: 'Times New Roman', serif;
+   
     transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
 }
 
 .logout-button:hover {
-    background-color: #ffcc00;
-    color: #004085;
+    background-color: #177865;
+    color: #ffffff;
     transform: scale(1.05);
 }

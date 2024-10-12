@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./PerfilUsuario.css";
 
+
 const PerfilUsuario = ({ userType }) => {
   const [isMoroso, setIsMoroso] = useState(false);
-  const [nombreUsuario, setNombreUsuario] = useState("Gemita la Tortuguita");
+  const [nombreUsuario, setNombreUsuario] = useState("Gema Rojas");
   const [notificaciones, setNotificaciones] = useState([
-    "Entregaste con éxito la laptop.",
-    "Debes devolver el libro antes del lunes.",
+    "1. Entregaste con éxito la laptop.",
+    "2. Debes devolver el libro antes del lunes.",
   ]);
   const [historialPrestamos, setHistorialPrestamos] = useState([
     { item: "Laptop", fecha: "2024-10-01", status: "Entregado" },
@@ -14,12 +15,12 @@ const PerfilUsuario = ({ userType }) => {
   ]);
   const [fotoPerfil, setFotoPerfil] = useState(null);
   const [numNotificaciones, setNumNotificaciones] = useState(notificaciones.length);
-  
+
   // Nuevas variables para la edición
   const [estadoAlumno, setEstadoAlumno] = useState("Habilitado");
   const [idUsuario, setIdUsuario] = useState("12345");
-  const [fechaCreacion, setFechaCreacion] = useState("2024-01-01");
-  const [correoContacto, setCorreoContacto] = useState("gemita@example.com");
+  const [fechaCreacion, setFechaCreacion] = useState("2024-10-16");
+  const [correoContacto, setCorreoContacto] = useState("GemitaLaTortuguita@example.com");
   const [isEditing, setIsEditing] = useState(false);
 
   const handleImageChange = (e) => {
@@ -43,7 +44,7 @@ const PerfilUsuario = ({ userType }) => {
   const handleSave = () => {
     // Aquí podrías agregar la lógica para guardar los cambios
     setIsEditing(false);
-    alert("Perfil actualizado");
+    alert("Perfil Actualizado");
   };
 
   return (
@@ -53,19 +54,19 @@ const PerfilUsuario = ({ userType }) => {
         <div className="notificaciones-icon">
           <span className="contador-notificaciones">{numNotificaciones}</span>
           <button className="ver-notificaciones-btn" onClick={() => alert(notificaciones.join("\n"))}>
-            Ver notificaciones
+            Ver Notificaciones
           </button>
         </div>
       </div>
       <div className="perfil-content">
         <div className="perfil-foto">
           <img
-            src={fotoPerfil || "/default-profile.png"}
+            src={fotoPerfil || "https://t.ctcdn.com.br/H-aNaP96CEouFFvJy_wBsyBJY5Q=/1920x1080/smart/i601453.png"}
             alt="Foto de perfil"
             className="foto-perfil"
           />
           <label className="file-label">
-            Elegir archivo
+            Cambiar Foto de Perfil
             <input type="file" accept=".png, .jpg, .jpeg" onChange={handleImageChange} className="file-input" />
           </label>
         </div>
@@ -108,12 +109,12 @@ const PerfilUsuario = ({ userType }) => {
                 <p><strong>Fecha de creación: </strong>{fechaCreacion}</p>
                 <p><strong>Correo de contacto: </strong>{correoContacto}</p>
                 <p><strong>Estado: </strong>{isMoroso ? "Moroso" : "Al día"}</p>
-                <button className="editar-btn" onClick={() => setIsEditing(true)}>Editar perfil</button>
+                <button className="editar-btn" onClick={() => setIsEditing(true)}>Editar Perfil</button>
               </>
             )}
           </div>
           <div className="historial-prestamos">
-            <h3>Historial de préstamos:</h3>
+            <h3>Historial de Préstamos:</h3>
             <ul>
               {historialPrestamos.map((prestamo, index) => (
                 <li key={index}>
