@@ -35,6 +35,7 @@ function App() {
         <Route path="/" element={<AdministrarItems />} />
         <Route path="/autenticacion" element={<Autenticacion />} />
         <Route path="/administrarPrestamos" element={<AdministrarPrestamos />} />
+        <Route path="/administrarSolicitudes" element={<AdministrarSolicitudes />} />
         
         {/* Nueva ruta para mostrar el perfil de usuario */}
         <Route path="/Perfil" element={<PerfilUsuario user={exampleUser} />} />
