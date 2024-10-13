@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Routes, Route, Link } from 'react-router-dom';
 import AdministrarItems from "./components/administrarItems/administrarItems.jsx";
 import Autenticacion from './components/autenticación/autenticacion.jsx';
+import AdministrarSolicitudes from './components/administrarSolicitudes/administrarSolicitudes.jsx';
 import AdministrarPrestamos from './components/administrarPrestamos/administrarPrestamos.jsx';
 import NavBarPanol from "./components/navbar/navbar.jsx";
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure this line is present
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<AdministrarItems />}/>
             <Route path="/autenticacion" element={<Autenticacion />}/>
             <Route path="/administrarPrestamos" element={<AdministrarPrestamos />}/>
+            <Route path="/administrarSolicitudes" element={<AdministrarSolicitudes />}/>
         </Routes>
     </>
   )

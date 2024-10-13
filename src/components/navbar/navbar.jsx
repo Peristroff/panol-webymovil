@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Img from '../img/logo.jpg';
+// import Img from 'src/img/logo.jpg';
 import './navbar.css';
 
 function NavBarPanol() {
@@ -9,13 +9,14 @@ function NavBarPanol() {
         <Navbar  expand="lg" className="mb-4 custom-navbar">
             <Navbar.Brand as={Link} to="/">
                 <img
-                    src="https://w7.pngwing.com/pngs/1013/651/png-transparent-national-secondary-school-computer-icons-escuela-school-angle-building-logo-thumbnail.png"
-                    alt="Logo Pañol"
+                    // src="https://w7.pngwing.com/pngs/1013/651/png-transparent-national-secondary-school-computer-icons-escuela-school-angle-building-logo-thumbnail.png"
+                    src="src/components/img/logo.jpg"
+                    alt="Pañol"
                     width="40"
                     height="40"
                     className="d-inline-block align-top"
                 />
-                {' LogoPañol'}
+                {' Pañol'}
             </Navbar.Brand>
 
              <Navbar.Collapse id="basic-navbar-nav">
