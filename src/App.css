@@ -25,7 +25,7 @@ body {
 }
 
 .container {
-  margin: 2rem;
+  /* margin: 2rem; */ /* FIXME Si lo dejammos asi, queda centrado */
   padding: 2rem;
   background-color: white;
   border-radius: 8px;
