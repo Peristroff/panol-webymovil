@@ -47,6 +47,7 @@ function Autenticacion() {
                     </div>
                 </Col>
             </Row>
+
         </Container>
     );
 }

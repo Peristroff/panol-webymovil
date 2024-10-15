@@ -4,7 +4,9 @@ body {
   margin: 0;
   background-image:url('https://cdn.dribbble.com/users/2156796/screenshots/19992280/media/7d2ee3a4d15d1f335419059066067694.gif');
   background-repeat:repeat;
+
 }
+
 
 .navbar {
   background-color: #539395;
@@ -25,52 +27,22 @@ body {
   text-decoration: underline;
 }
 
-.container {
-  margin: 2rem;
-  padding: 2rem;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+
 
 h2 {
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
-.button {
-  background-color: #007bff;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  font-size: 1rem;
-  margin: 10px 0;
-  cursor: pointer;
-  border-radius: 5px;
+
+.container {
+
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.button:hover {
-  background-color: #0056b3;
-}
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-}
-
-.table th, .table td {
-  border: 1px solid #dee2e6;
-  padding: 12px;
-  text-align: left;
-}
-
-.table th {
-  background-color: #007bff;
-  color: white;
-}
-
-.table tbody tr:nth-child(even) {
-  background-color: #f8f9fa;
+th{
+  color: white !important;
 }

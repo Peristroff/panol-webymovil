@@ -1,0 +1,74 @@
+h2 {
+    margin-bottom: 20px;
+}
+
+button {
+    margin-right: 20px !important;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #b57f67; /* Change to your desired color */
+    color: white; /* Optional: Change text color on hover */
+}
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 20px; /* Add rounded border */
+    overflow: hidden; /* Ensure rounded corners are visible */
+}
+.table th {
+    background-color: #b57f67 !important;
+    color: white;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #C29F87 !important;
+}
+
+.items-admin-container{
+    margin: 2rem;
+}
+
+#addButton{
+    margin: 2rem;
+    padding: 1rem;
+    color: brown;
+    background-color: white;
+    border: 2px solid #b57f67;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#addButton:hover{
+    background-color: #b57f67;
+    color: white;
+}
+
+td{
+    justify-content: space-between;
+}
+
+.search-filter-control {
+    width: 200px;
+    margin-right: 10px;
+}
+
+form {
+    display: inline-flex;
+    margin-bottom: 20px;
+    justify-content: space-around !important;
+    align-items: center;
+}
+
+.search-filter-control {
+    width: 200px !important;
+    height: fit-content;
+    margin-right: 10px;
+}
+
+col {
+    display: flex;
+    justify-content: center;
+}

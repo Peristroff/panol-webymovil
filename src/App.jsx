@@ -4,11 +4,11 @@ import AdministrarItems from "./components/administrarItems/administrarItems.jsx
 import Autenticacion from './components/autenticación/autenticacion.jsx';
 import AdministrarPrestamos from './components/administrarPrestamos/administrarPrestamos.jsx';
 import NavBarPanol from "./components/navbar/navbar.jsx";
-import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure this line is present
+import AdministrarUsuarios from "./components/administrarUsuarios/administrarUsuarios.jsx";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -18,6 +18,7 @@ function App() {
             <Route path="/" element={<AdministrarItems />}/>
             <Route path="/autenticacion" element={<Autenticacion />}/>
             <Route path="/administrarPrestamos" element={<AdministrarPrestamos />}/>
+            <Route path="/administrarUsuarios" element={<AdministrarUsuarios />}/>
         </Routes>
     </>
   )
