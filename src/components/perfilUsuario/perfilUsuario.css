@@ -1,136 +1,134 @@
 .perfil-usuario-container {
-    font-family: 'Times New Roman', serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f0f8ff;
-    border-radius: 10px;
-    border: 1px solid #2f7d7a;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f8ff;
+  border-radius: 10px;
+  border: 1px solid #2f7d7a;
 }
 
 .header-perfil {
-    font-family: 'Times New Roman', serif;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .header-perfil h1 {
-    font-family: 'Times New Roman', serif;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .notificaciones-icon {
-    font-family: 'Times New Roman', serif;
-    position: relative;
+  position: relative;
 }
 
 .contador-notificaciones {
-    font-family: 'Times New Roman', serif;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 5px 10px;
-    position: absolute;
-    top: -10px;
-    right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
 }
 
 .perfil-content {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .perfil-foto {
-    flex-basis: 40%;
-    text-align: center;
+  flex-basis: 40%;
+  text-align: center;
 }
 
 .foto-perfil {
-    width: 180px; /* Aumentada */
-    height: 180px; /* Aumentada */
-    object-fit: cover;
-    border: 1px solid #2f7d7a;
-    border-radius: 50%;
-    margin-bottom: 10px;
+  width: 180px; /*ancho de la imagen*/
+  height: 180px; /*altura de la imagen*/
+  object-fit: cover;
+  border: 1px solid #2f7d7a;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
 
 .file-input {
-    display: none; /* Oculta el input */
+  display: none; /* Oculta el input */
 }
 
 .file-label {
-    font-family: 'Times New Roman', serif;
-    background-color: #599492; /* Color celeste suave */
-    color: rgb(255, 255, 255);
-    border: 1px solid #2f7d7a;
-    border-radius: 20px; /* Bordes redondeados */
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: #599492;
+  color: rgb(255, 255, 255);
+  border: 1px solid #2f7d7a;
+  border-radius: 20px; /* Bordes redondeados */
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .file-label:hover {
-    background-color: #385a59;
-    border: 1px solid#2f7d7a; /* Color celeste más oscuro al pasar el cursor */
+  background-color: #385a59;
+  border: 1px solid#2f7d7a; /* Color celeste más oscuro al pasar el cursor */
 }
 
 .info-usuario {
-    flex-basis: 100%;
+  flex-basis: 100%;
 }
 
 .datos-usuario {
-    font-family: 'Times New Roman', serif;
-    background-color: #fff;
-    border: 1px solid #385a59;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 20px;
+  font-family: "Times New Roman", serif;
+  background-color: #fff;
+  border: 1px solid #385a59;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
 }
 
 .info-usuario p {
-    font-family: 'Times New Roman', serif;
-    font-size: 16px;
-    margin-bottom: 10px;
+  font-family: "Times New Roman", serif;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
-.editar-btn, .guardar-btn, .ver-notificaciones-btn {
-    font-family: 'Times New Roman', serif;
-    background-color: #599492; /* Color celeste suave */
-    color: rgb(255, 255, 255);
-    border: 1px solid #2f7d7a;
-    border-radius: 20px; /* Bordes redondeados */
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.editar-btn,
+.guardar-btn,
+.ver-notificaciones-btn {
+  font-family: "Times New Roman", serif;
+  background-color: #599492; /* Color celeste suave */
+  color: rgb(255, 255, 255);
+  border: 1px solid #2f7d7a;
+  border-radius: 20px; /* Bordes redondeados */
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.editar-btn:hover, .guardar-btn:hover, .ver-notificaciones-btn:hover {
-    background-color: #385a59;
-    border: 1px solid #2f7d7a; /* Color celeste más oscuro al pasar el cursor */
+.editar-btn:hover,
+.guardar-btn:hover,
+.ver-notificaciones-btn:hover {
+  background-color: #385a59;
+  border: 1px solid #2f7d7a; /* Color celeste más oscuro al pasar el cursor */
 }
 
 .historial-prestamos {
-    font-family: 'Times New Roman', serif;
-    background-color: #fff;
-    border: 1px solid #2f7d7a;
-    border-radius: 5px;
-    padding: 15px;
+  font-family: "Times New Roman", serif;
+  background-color: #fff;
+  border: 1px solid #2f7d7a;
+  border-radius: 5px;
+  padding: 15px;
 }
 
 ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 li {
-    background-color: #f9f9f9;
-    border: 1px solid #2f7d7a;
-    padding: 8px;
-    margin-bottom: 5px;
-    border-radius: 5px;
+  background-color: #f9f9f9;
+  border: 1px solid #2f7d7a;
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }
