@@ -43,16 +43,12 @@ function App() {
             <Route path="/autenticacion" element={<Autenticacion />}/>
             <Route path="/administrarPrestamos" element={<AdministrarPrestamos />}/>
             <Route path="/administrarUsuarios" element={<AdministrarUsuarios />}/>
+            <Route path="/administrar-prestamos" element={<AdministrarPrestamos />} />
+            <Route path="/administrar-solicitudes" element={<AdministrarSolicitudes />} />
+            <Route path="/historial-de-prestamos" element={<HistorialDePrestamos />} />
+            <Route path="/Perfil-admin" element={<PerfilAdmin/>} />
+            <Route path="/Perfil-alumno" element={<PerfilUsuario/>} />
         </Routes>
-      <Routes>
-        <Route path="/" element={<AdministrarItems />} />
-        <Route path="/autenticacion" element={<Autenticacion />} />
-        <Route path="/administrar-prestamos" element={<AdministrarPrestamos />} />
-        <Route path="/administrar-solicitudes" element={<AdministrarSolicitudes />} />
-        <Route path="/historial-de-prestamos" element={<HistorialDePrestamos />} />
-        <Route path="/Perfil-admin" element={<PerfilAdmin/>} />
-        <Route path="/Perfil-alumno" element={<PerfilUsuario/>} />
-      </Routes>
     </>
   );
 }
