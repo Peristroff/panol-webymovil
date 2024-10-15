@@ -67,7 +67,7 @@ function NavBarPanol() {
                             Perfil de Coordinador
                         </Nav.Link>
                     </Nav>
-                    <Button variant="outline-light" as={Link} to="/login" className="ml-3 logout-button">
+                    <Button variant="outline-light" as={Link} to="/autenticacion" className="ml-3 logout-button">
                         Cerrar Sesión
                     </Button>
                 </Navbar.Collapse>
@@ -95,8 +95,8 @@ function NavBarPanol() {
                         <Nav.Link as={Link} to="/inventario" className="nav-item-custom">
                             Inventario
                         </Nav.Link>
-                        {/* Si el usuario no esta logeado, mandar a la pagina de login */}
-                        <Nav.Link as={Link} to="/login" className="nav-item-custom">
+                        {/* Si el usuario no esta logeado, mandar a la pagina de autenticacion*/}
+                        <Nav.Link as={Link} to="/autenticacion" className="nav-item-custom">
                             <i className="fas fa-shopping-cart"></i> Crear Solicitud
                         </Nav.Link>
                         <Nav.Link as={Link} to="/perfil-alumno" className="nav-item-custom">
