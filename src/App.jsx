@@ -21,25 +21,13 @@ function App() {
       '/administrar-prestamos': 'Administración de Préstamos',
       '/administrar-solicitudes': 'Administración de Solicitudes',
       '/historial-de-prestamos': 'Historial de Préstamos',
+      '/perfil-admin': 'Perfil de Coordinador',
+      '/perfil-alumno': 'Perfil de Alumno',
     };
     // Nombre por defecto si no se encuentra la ruta
     document.title = titles[location.pathname] || 'Pañol';
   }, [location]);
 
-  // Ejemplo de datos del usuario
-  const exampleUser = {
-    name: 'Ana Gómez',
-    profileImage: 'https://www.example.com/foto-de-perfil.jpg',
-    isEnabled: true,
-    loanHistory: [
-      { item: 'Laptop', loanDate: '01/10/2024', returnDate: '10/10/2024' },
-      { item: 'Cámara', loanDate: '05/10/2024', returnDate: null },
-    ],
-    requestHistory: [
-      { item: 'Proyector', requestDate: '02/10/2024', status: 'Aprobado' },
-    ],
-    isBlocked: false,
-  };
 
   return (
     <>
@@ -51,8 +39,8 @@ function App() {
         <Route path="/administrar-prestamos" element={<AdministrarPrestamos />} />
         <Route path="/administrar-solicitudes" element={<AdministrarSolicitudes />} />
         <Route path="/historial-de-prestamos" element={<HistorialDePrestamos />} />
-        <Route path="/Perfil-Alumno" element={<PerfilUsuario />} />
-        <Route path="/Perfil-Coordinador" element={<PerfilAdmin />} />
+        <Route path="/Perfil-alumno" element={<PerfilUsuario />} />
+        <Route path="/Perfil-admin" element={<PerfilAdmin />} />
       </Routes>
     </>
   );

@@ -1,5 +1,5 @@
 .perfil-admin {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Times New Roman", serif;
     padding: 20px;
   }
   
@@ -8,63 +8,111 @@
     margin-bottom: 20px;
   }
   
-  .admin-foto {
+  .profile-pic {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 2px solid #ccc;
+    object-fit: cover;
+    margin-bottom: 10px;
   }
   
   h2 {
-    margin-top: 10px;
+    font-size: 24px;
+    margin: 0;
   }
   
-  .cursos-lista {
+  .cursos-list {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
     margin-bottom: 20px;
   }
   
-  .curso-boton {
-    display: block;
+  .curso-button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    transition: background-color 0.3s ease;
+  }
+  
+  .curso-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .curso-button.active {
+    background-color: #d4edda;
+    border-color: #28a745;
+  }
+  
+  .alumnos-list {
+    margin-bottom: 20px;
+  }
+  
+  .alumno-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 10px;
-    margin-bottom: 10px;
-    background-color: #007bff;
-    color: white;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .alumno-correo {
+    cursor: pointer;
+    color: #007bff;
+    text-decoration: underline;
+  }
+  
+  .alumno-correo:hover {
+    color: #0056b3;
+  }
+  
+  .toggle-button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #f8d7da;
     border: none;
     cursor: pointer;
-    text-align: left;
-    width: 100%;
-    border-radius: 5px;
-    font-size: 16px;
+    color: #721c24;
+    transition: background-color 0.3s ease;
   }
   
-  .curso-boton:hover {
-    background-color: #0056b3;
+  .toggle-button:hover {
+    background-color: #f5c6cb;
   }
   
-  .alumnos-lista {
+  .deuda {
+    font-style: italic;
+    color: #dc3545;
+  }
+  
+  .mensajeria {
     margin-top: 20px;
   }
   
-  .bloquear-boton {
-    margin-left: 20px;
-    padding: 5px 10px;
-    background-color: #ff4d4d;
+  .correo-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .enviar-button {
+    background-color: #28a745;
     color: white;
+    padding: 10px;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
   }
   
-  .bloquear-boton:hover {
-    background-color: #cc0000;
+  .enviar-button:hover {
+    background-color: #218838;
   }
   
-  .alumnos-lista ul {
-    list-style-type: none;
-    padding-left: 0;
+  .mensaje-exito {
+    color: #28a745;
+    margin-top: 10px;
   }
   
-  .alumnos-lista li {
-    margin-bottom: 10px;
-  }
-   
