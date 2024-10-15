@@ -1,5 +1,4 @@
 .perfil-usuario-container {
-    font-family: 'Times New Roman', serif;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -9,7 +8,6 @@
 }
 
 .header-perfil {
-    font-family: 'Times New Roman', serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,19 +15,16 @@
 }
 
 .header-perfil h1 {
-    font-family: 'Times New Roman', serif;
     font-size: 24px;
     font-weight: bold;
     text-align: center;
 }
 
 .notificaciones-icon {
-    font-family: 'Times New Roman', serif;
     position: relative;
 }
 
 .contador-notificaciones {
-    font-family: 'Times New Roman', serif;
     background-color: red;
     color: white;
     border-radius: 50%;
@@ -64,7 +59,6 @@
 }
 
 .file-label {
-    font-family: 'Times New Roman', serif;
     background-color: #599492; /* Color celeste suave */
     color: rgb(255, 255, 255);
     border: 1px solid #2f7d7a;
@@ -84,7 +78,6 @@
 }
 
 .datos-usuario {
-    font-family: 'Times New Roman', serif;
     background-color: #fff;
     border: 1px solid #385a59;
     border-radius: 5px;
@@ -93,13 +86,11 @@
 }
 
 .info-usuario p {
-    font-family: 'Times New Roman', serif;
     font-size: 16px;
     margin-bottom: 10px;
 }
 
 .editar-btn, .guardar-btn, .ver-notificaciones-btn {
-    font-family: 'Times New Roman', serif;
     background-color: #599492; /* Color celeste suave */
     color: rgb(255, 255, 255);
     border: 1px solid #2f7d7a;
@@ -115,7 +106,6 @@
 }
 
 .historial-prestamos {
-    font-family: 'Times New Roman', serif;
     background-color: #fff;
     border: 1px solid #2f7d7a;
     border-radius: 5px;

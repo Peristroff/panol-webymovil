@@ -6,14 +6,13 @@ import AdministrarSolicitudes from './components/administrarSolicitudes/administ
 import AdministrarPrestamos from './components/administrarPrestamos/administrarPrestamos.jsx';
 import NavBarPanol from "./components/navbar/navbar.jsx";
 import HistorialDePrestamos from "./components/historialDePrestamos/historialDePrestamos.jsx";
-import PerfilUsuario from './components/PerfilUsuario/PerfilUsuario.jsx';  // Agrega la importación de PerfilUsuario
+import PerfilUsuario from './components/PerfilUsuario/PerfilUsuario.jsx';
+import PerfilAdmin from './components/PerfilAdmin/PerfilAdmin.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure this line is present
 import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
-  
-  // Cambiar el título de la página según la ruta
   const location = useLocation();
   useEffect(() => {
     const titles = {
@@ -52,9 +51,8 @@ function App() {
         <Route path="/administrar-prestamos" element={<AdministrarPrestamos />} />
         <Route path="/administrar-solicitudes" element={<AdministrarSolicitudes />} />
         <Route path="/historial-de-prestamos" element={<HistorialDePrestamos />} />
-        
-        {/* Nueva ruta para mostrar el perfil de usuario */}
-        <Route path="/Perfil" element={<PerfilUsuario user={exampleUser} />} />
+        <Route path="/Perfil-Alumno" element={<PerfilUsuario />} />
+        <Route path="/Perfil-Coordinador" element={<PerfilAdmin />} />
       </Routes>
     </>
   );

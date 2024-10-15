@@ -26,8 +26,8 @@ function NavBarPanol() {
                         <Nav.Link as={Link} to="/crear-solicitud" className="nav-item-custom">
                             <i className="fas fa-shopping-cart"></i> Crear Solicitud
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/perfil" className="nav-item-custom">
-                            Perfil
+                        <Nav.Link as={Link} to="/perfil-alumno" className="nav-item-custom">
+                            Perfil de Alumno
                         </Nav.Link>
                     </Nav>
                     <Button variant="outline-light" as={Link} to="/login" className="ml-3 logout-button">
@@ -64,7 +64,7 @@ function NavBarPanol() {
                             Inventario
                         </Nav.Link>
                         <Nav.Link as={Link} to="/perfil-admin" className="nav-item-custom">
-                            Perfil
+                            Perfil de Coordinador
                         </Nav.Link>
                     </Nav>
                     <Button variant="outline-light" as={Link} to="/login" className="ml-3 logout-button">
@@ -99,8 +99,8 @@ function NavBarPanol() {
                         <Nav.Link as={Link} to="/login" className="nav-item-custom">
                             <i className="fas fa-shopping-cart"></i> Crear Solicitud
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/perfil" className="nav-item-custom">
-                            Perfil
+                        <Nav.Link as={Link} to="/perfil-alumno" className="nav-item-custom">
+                            Perfil de Alumno
                         </Nav.Link>
                     </Nav>
                     <Button variant="outline-light" as={Link} to="/login" className="ml-3 logout-button">

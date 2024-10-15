@@ -1,0 +1,70 @@
+.perfil-admin {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 20px;
+  }
+  
+  .admin-info {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .admin-foto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+  }
+  
+  h2 {
+    margin-top: 10px;
+  }
+  
+  .cursos-lista {
+    margin-bottom: 20px;
+  }
+  
+  .curso-boton {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .curso-boton:hover {
+    background-color: #0056b3;
+  }
+  
+  .alumnos-lista {
+    margin-top: 20px;
+  }
+  
+  .bloquear-boton {
+    margin-left: 20px;
+    padding: 5px 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .bloquear-boton:hover {
+    background-color: #cc0000;
+  }
+  
+  .alumnos-lista ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .alumnos-lista li {
+    margin-bottom: 10px;
+  }
+   
