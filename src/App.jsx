@@ -9,8 +9,8 @@ import AdministrarUsuarios from "./components/administrarUsuarios/administrarUsu
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import HistorialDePrestamos from "./components/historialDePrestamos/historialDePrestamos.jsx";
-import PerfilUsuario from './components/PerfilUsuario/PerfilUsuario.jsx';
-import PerfilAdmin from './components/PerfilAdmin/PerfilAdmin.jsx';
+import PerfilUsuario from './components/perfilUsuario/perfilUsuario.jsx';
+import PerfilAdmin from './components/perfilAdmin/perfilAdmin.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure this line is present
 import './App.css';
 
@@ -46,8 +46,8 @@ function App() {
             <Route path="/administrar-prestamos" element={<AdministrarPrestamos />} />
             <Route path="/administrar-solicitudes" element={<AdministrarSolicitudes />} />
             <Route path="/historial-de-prestamos" element={<HistorialDePrestamos />} />
-            <Route path="/Perfil-admin" element={<PerfilAdmin/>} />
-            <Route path="/Perfil-alumno" element={<PerfilUsuario/>} />
+            <Route path="/perfil-admin" element={<PerfilAdmin/>} />
+            <Route path="/perfil-alumno" element={<PerfilUsuario/>} />
         </Routes>
     </>
   );
