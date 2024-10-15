@@ -5,6 +5,9 @@ import Autenticacion from './components/autenticación/autenticacion.jsx';
 import AdministrarSolicitudes from './components/administrarSolicitudes/administrarSolicitudes.jsx';
 import AdministrarPrestamos from './components/administrarPrestamos/administrarPrestamos.jsx';
 import NavBarPanol from "./components/navbar/navbar.jsx";
+import AdministrarUsuarios from "./components/administrarUsuarios/administrarUsuarios.jsx";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 import HistorialDePrestamos from "./components/historialDePrestamos/historialDePrestamos.jsx";
 import PerfilUsuario from './components/PerfilUsuario/PerfilUsuario.jsx';
 import PerfilAdmin from './components/PerfilAdmin/PerfilAdmin.jsx';
@@ -13,6 +16,8 @@ import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
+
+  // Cambiar el título de la página según la ruta
   const location = useLocation();
   useEffect(() => {
     const titles = {
@@ -33,14 +38,20 @@ function App() {
     <>
       <NavBarPanol />
 
+        <Routes>
+            <Route path="/" element={<AdministrarItems />}/>
+            <Route path="/autenticacion" element={<Autenticacion />}/>
+            <Route path="/administrarPrestamos" element={<AdministrarPrestamos />}/>
+            <Route path="/administrarUsuarios" element={<AdministrarUsuarios />}/>
+        </Routes>
       <Routes>
         <Route path="/" element={<AdministrarItems />} />
         <Route path="/autenticacion" element={<Autenticacion />} />
         <Route path="/administrar-prestamos" element={<AdministrarPrestamos />} />
         <Route path="/administrar-solicitudes" element={<AdministrarSolicitudes />} />
         <Route path="/historial-de-prestamos" element={<HistorialDePrestamos />} />
-        <Route path="/Perfil-alumno" element={<PerfilUsuario />} />
-        <Route path="/Perfil-admin" element={<PerfilAdmin />} />
+        <Route path="/Perfil-admin" element={<PerfilAdmin/>} />
+        <Route path="/Perfil-alumno" element={<PerfilUsuario/>} />
       </Routes>
     </>
   );
