@@ -21,6 +21,13 @@
     font-size: 30px;
     margin: 1;
   }
+
+  h3 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px ;
+    text-decoration: underline;
+  }
   
   .cursos-list {
     display: flex;
@@ -81,6 +88,7 @@
     cursor: pointer;
     color: #721c24;
     transition: background-color 0.3s ease;
+    margin-left: 300px ;
   }
   
   .toggle-button:hover {
