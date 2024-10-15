@@ -35,12 +35,13 @@ const generarAlumnos = (curso) => {
 
 // Lista de cursos
 const cursos = [
-  { nombre: "Octavo Medio A", alumnos: generarAlumnos("Octavo Medio A") },
-  { nombre: "Octavo Medio B", alumnos: generarAlumnos("Octavo Medio B") },
   { nombre: "Primero Medio A", alumnos: generarAlumnos("Primero Medio A") },
   { nombre: "Primero Medio B", alumnos: generarAlumnos("Primero Medio B") },
   { nombre: "Segundo Medio A", alumnos: generarAlumnos("Segundo Medio A") },
   { nombre: "Segundo Medio B", alumnos: generarAlumnos("Segundo Medio B") },
+  { nombre: "Tercero Medio A", alumnos: generarAlumnos("Tercero Medio A") },
+  { nombre: "Tercero Medio B", alumnos: generarAlumnos("Tercero Medio B") },
+  
 ];
 
 // Componente principal

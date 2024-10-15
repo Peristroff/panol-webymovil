@@ -1,6 +1,6 @@
 .perfil-admin {
     font-family: "Times New Roman", serif;
-    padding: 20px;
+    padding: 15px;
   }
   
   .admin-info {
@@ -14,16 +14,17 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
+    border: 2px solid #539395;
   }
   
   h2 {
-    font-size: 24px;
-    margin: 0;
+    font-size: 30px;
+    margin: 1;
   }
   
   .cursos-list {
     display: flex;
-    gap: 10px;
+    gap: 30px;
     justify-content: center;
     margin-bottom: 20px;
   }
@@ -31,13 +32,14 @@
   .curso-button {
     padding: 10px 20px;
     border-radius: 10px;
-    background-color: #f0f0f0;
-    border: 2px solid #ccc;
+    background-color:#A3C9CC ;
+    border: 2px solid #539395;
     transition: background-color 0.3s ease;
+    border-radius: 80px;
   }
   
   .curso-button:hover {
-    background-color: #e0e0e0;
+    background-color: #a5dee3;
   }
   
   .curso-button.active {
@@ -54,12 +56,16 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #A3C9CC;
+    background-color: #cfb5ab2c;
+    margin-bottom: 10px ;
+    margin-left: 200px; 
+    margin-right: 200px;
   }
   
   .alumno-correo {
     cursor: pointer;
-    color: #007bff;
+    color: #4ca3ff;
     text-decoration: underline;
   }
   
@@ -69,7 +75,7 @@
   
   .toggle-button {
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 80px;
     background-color: #f8d7da;
     border: none;
     cursor: pointer;
@@ -83,11 +89,23 @@
   
   .deuda {
     font-style: italic;
-    color: #dc3545;
+    color: #539395;
   }
-  
+  .contraer-button {
+    padding: 5px 10px;
+    border-radius: 80px;
+    background-color: #f8d7da;
+    border: none;
+    cursor: pointer;
+    color: #721c24;
+    transition: background-color 0.3s ease;
+
+  }
   .mensajeria {
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-left: 300px ;
+    margin-right: 300px;
+    
   }
   
   .correo-textarea {
@@ -95,7 +113,8 @@
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #539395;
+    background-color: #cfb5ab4f;
   }
   
   .enviar-button {
