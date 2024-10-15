@@ -53,8 +53,6 @@ RF.14 Bloquear a alumnos morosos para que no puedan generar solicitudes en base 
 ## Casos de uso. 
 ### Especificación del Caso de Uso
 
-<!-- TODO: Modificar la tabla para que se vea bonito -->
-
 | ID Caso de Uso | Descripción y trazabilidad |Actores  involucrados|
 |:-----------:|:-----------:|:-----------:|
 | CU1 | Autenticar usuario RF 1 | Jefe Carrera Coordinador Pañolero Alumno|

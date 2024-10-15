@@ -18,12 +18,12 @@ function Autenticacion() {
             <Row className="justify-content-md-center">
                 <Col md="4" className="d-flex justify-content-center">
                     <div className="login-box">
-                        <h2 className="text-center">Login</h2>
+                        <h2 className="text-center">Iniciar Sesión</h2>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Control
                                     type="email"
-                                    placeholder="Enter email"
+                                    placeholder="Ingresar Email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="rounded-input"
@@ -33,7 +33,7 @@ function Autenticacion() {
                             <Form.Group controlId="formBasicPassword">
                                 <Form.Control
                                     type="password"
-                                    placeholder="Password"
+                                    placeholder="Contraseña"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     className="rounded-input"
@@ -41,7 +41,7 @@ function Autenticacion() {
                             </Form.Group>
 
                             <Button variant="primary" type="submit" className="w-100 rounded-button">
-                                Submit
+                                Acceder
                             </Button>
                         </Form>
                     </div>
