@@ -30,7 +30,7 @@ function NavBarPanol() {
                             Perfil de Alumno
                         </Nav.Link>
                     </Nav>
-                    <Button variant="outline-light" as={Link} to="/login" className="ml-3 logout-button">
+                    <Button variant="outline-light" as={Link} to="/autenticacion" className="ml-3 logout-button">
                         Cerrar Sesión
                     </Button>
                 </Navbar.Collapse>

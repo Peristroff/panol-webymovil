@@ -15,43 +15,42 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure this line is present
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
 
-  // Cambiar el título de la página según la ruta
-  const location = useLocation();
-  useEffect(() => {
-    const titles = {
-      '/': 'Inicio - Administración de Items',
-      '/autenticacion': 'Autenticación',
-      '/administrar-prestamos': 'Administración de Préstamos',
-      '/administrar-solicitudes': 'Administración de Solicitudes',
-      '/historial-de-prestamos': 'Historial de Préstamos',
-      '/perfil-admin': 'Perfil de Coordinador',
-      '/perfil-alumno': 'Perfil de Alumno',
-    };
-    // Nombre por defecto si no se encuentra la ruta
-    document.title = titles[location.pathname] || 'Pañol';
-  }, [location]);
+    // Cambiar el título de la página según la ruta
+    const location = useLocation();
+    useEffect(() => {
+        const titles = {
+            '/': 'Inicio - Administración de Items',
+            '/autenticacion': 'Autenticación',
+            '/administrar-prestamos': 'Administración de Préstamos',
+            '/administrar-solicitudes': 'Administración de Solicitudes',
+            '/historial-de-prestamos': 'Historial de Préstamos',
+            '/perfil-admin': 'Perfil de Coordinador',
+            '/perfil-alumno': 'Perfil de Alumno',
+        };
+        // Nombre por defecto si no se encuentra la ruta
+        document.title = titles[location.pathname] || 'Pañol';
+    }, [location]);
 
 
-  return (
-    <>
-      <NavBarPanol />
-
-        <Routes>
-            <Route path="/" element={<AdministrarItems />}/>
-            <Route path="/autenticacion" element={<Autenticacion />}/>
-            <Route path="/administrarPrestamos" element={<AdministrarPrestamos />}/>
-            <Route path="/administrarUsuarios" element={<AdministrarUsuarios />}/>
-            <Route path="/administrar-prestamos" element={<AdministrarPrestamos />} />
-            <Route path="/administrar-solicitudes" element={<AdministrarSolicitudes />} />
-            <Route path="/historial-de-prestamos" element={<HistorialDePrestamos />} />
-            <Route path="/perfil-admin" element={<PerfilAdmin/>} />
-            <Route path="/perfil-alumno" element={<PerfilUsuario/>} />
-        </Routes>
-    </>
-  );
+    return (
+        <>
+            {/* No renderizar navbar si es la página de autenticación o inicio*/}
+            {location.pathname === '/autenticacion' || location.pathname === '/' ? null : <NavBarPanol/>}
+            <Routes>
+                <Route path="/" element={<AdministrarItems/>}/>
+                <Route path="/autenticacion" element={<Autenticacion/>}/>
+                <Route path="/administrarPrestamos" element={<AdministrarPrestamos/>}/>
+                <Route path="/administrarUsuarios" element={<AdministrarUsuarios/>}/>
+                <Route path="/administrar-prestamos" element={<AdministrarPrestamos/>}/>
+                <Route path="/administrar-solicitudes" element={<AdministrarSolicitudes/>}/>
+                <Route path="/historial-de-prestamos" element={<HistorialDePrestamos/>}/>
+                <Route path="/perfil-admin" element={<PerfilAdmin/>}/>
+                <Route path="/perfil-alumno" element={<PerfilUsuario/>}/>
+            </Routes>
+        </>
+    );
 }
-
 export default App;
 
