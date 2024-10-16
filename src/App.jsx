@@ -10,6 +10,8 @@ import HistorialDePrestamos from "./components/historialDePrestamos/historialDeP
 import PerfilUsuario from './components/perfilUsuario/perfilUsuario.jsx';
 import PerfilAdmin from './components/perfilAdmin/perfilAdmin.jsx';
 import Home from "./components/home/home.jsx";
+import CrearSolicitud from "./components/crearSolicitud/crearSolicitud.jsx";
+import Materiales from "./components/catalogo/materiales.jsx";
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure this line is present
 import './App.css';
 
@@ -26,6 +28,8 @@ function App() {
             '/administrar-solicitudes': 'Administración de Solicitudes',
             '/historial-de-prestamos': 'Historial de Préstamos',
             '/perfil-admin': 'Perfil de Coordinador',
+            '/crear-solicitud': 'Crear Solicitud',
+            '/materiales': 'Materiales',
             '/perfil-alumno': 'Perfil de Alumno',
         };
         // Nombre por defecto si no se encuentra la ruta
@@ -48,6 +52,8 @@ function App() {
                 <Route path="/historial-de-prestamos" element={<HistorialDePrestamos/>}/>
                 <Route path="/perfil-admin" element={<PerfilAdmin/>}/>
                 <Route path="/perfil-alumno" element={<PerfilUsuario/>}/>
+                <Route path="/crear-solicitud" element={<CrearSolicitud/>}/>
+                <Route path="/materiales" element={<Materiales/>}/>
             </Routes>
         </>
     );
