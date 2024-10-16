@@ -11,6 +11,7 @@ import './App.css'
 import HistorialDePrestamos from "./components/historialDePrestamos/historialDePrestamos.jsx";
 import PerfilUsuario from './components/perfilUsuario/perfilUsuario.jsx';
 import PerfilAdmin from './components/perfilAdmin/perfilAdmin.jsx';
+import Home from "./components/home/home.jsx";
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure this line is present
 import './App.css';
 
@@ -39,7 +40,8 @@ function App() {
             {/* No renderizar navbar si es la página de autenticación o inicio*/}
             {location.pathname === '/autenticacion' || location.pathname === '/' ? null : <NavBarPanol/>}
             <Routes>
-                <Route path="/" element={<AdministrarItems/>}/>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/administrarItems" element={<AdministrarItems/>}/>
                 <Route path="/autenticacion" element={<Autenticacion/>}/>
                 <Route path="/administrarPrestamos" element={<AdministrarPrestamos/>}/>
                 <Route path="/administrarUsuarios" element={<AdministrarUsuarios/>}/>
