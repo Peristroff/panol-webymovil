@@ -1,145 +1,201 @@
+/*distribucion espacial de datos de admin*/
 .perfil-admin {
-    font-family: "Times New Roman", serif;
-    padding: 15px;
-  }
-  
-  .admin-info {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-    border: 2px solid #539395;
-  }
-  
-  h2 {
-    font-size: 30px;
-    margin: 1;
-  }
+  padding: 15 px;
+}
 
-  h3 {
-    font-size: 30px;
-    text-align: center;
-    margin-bottom: 20px ;
-    text-decoration: underline;
-  }
-  
-  .cursos-list {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .curso-button {
-    padding: 10px 20px;
-    border-radius: 10px;
-    background-color:#A3C9CC ;
-    border: 2px solid #539395;
-    transition: background-color 0.3s ease;
-    border-radius: 80px;
-  }
-  
-  .curso-button:hover {
-    background-color: #a5dee3;
-  }
-  
-  .curso-button.active {
-    background-color: #d4edda;
-    border-color: #28a745;
-  }
-  
-  .alumnos-list {
-    margin-bottom: 20px;
-  }
-  
-  .alumno-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #A3C9CC;
-    background-color: #cfb5ab2c;
-    margin-bottom: 10px ;
-    margin-left: 200px; 
-    margin-right: 200px;
-  }
-  
-  .alumno-correo {
-    cursor: pointer;
-    color: #4ca3ff;
-    text-decoration: underline;
-  }
-  
-  .alumno-correo:hover {
-    color: #0056b3;
-  }
-  
-  .toggle-button {
-    padding: 5px 10px;
-    border-radius: 80px;
-    background-color: #f8d7da;
-    border: none;
-    cursor: pointer;
-    color: #721c24;
-    transition: background-color 0.3s ease;
-    margin-left: 300px ;
-  }
-  
-  .toggle-button:hover {
-    background-color: #f5c6cb;
-  }
-  
-  .deuda {
-    font-style: italic;
-    color: #539395;
-  }
-  .contraer-button {
-    padding: 5px 10px;
-    border-radius: 80px;
-    background-color: #f8d7da;
-    border: none;
-    cursor: pointer;
-    color: #721c24;
-    transition: background-color 0.3s ease;
+/*distribución de foto y nombre de perfil*/
+.admin-info {
+  text-align:center;
+  margin-bottom: 20px;
+}
 
-  }
-  .mensajeria {
-    margin-top: 40px;
-    margin-left: 300px ;
-    margin-right: 300px;
-    
-  }
-  
-  .correo-textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #539395;
-    background-color: #cfb5ab4f;
-  }
-  
-  .enviar-button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .enviar-button:hover {
-    background-color: #218838;
-  }
-  
-  .mensaje-exito {
-    color: #28a745;
-    margin-top: 10px;
-  }
-  
+/*detalles de foto de perfil coordinador*/
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 20%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid #814a36;
+}
+
+/*titulo Jerry Peña*/
+h2 {
+  font-size: 30px;
+  margin: 1;
+}
+
+/*titulo Cursos Disponibles*/
+h3 {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+/*botones de listas de alumnos por curso*/
+.cursos-list {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/*Diseño boton de cursos x alumnos*/
+.curso-button {
+  background-color: #599492;
+  color: rgb(255, 255, 255);
+  border: 1px solid #814a36;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+/* Contenedor de la info del profesor y notificaciones */
+.info-container {
+  background-color: #cfb5ab2c;
+  border: 1px solid #814a36;
+  border-radius: 5px;
+  padding: 15px;
+  justify-content: center;
+  display: center !important;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-right: 600px;
+  margin-left: 600px;
+}
+/* Botón de notificaciones */
+.notificaciones-button {
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 80px;
+  background-color: #f8d7da;
+  cursor: pointer;
+  color: #721c24;
+  transition: background-color 0.3s ease;
+  justify-content: center;
+  display: center !important;
+  margin-left: 40px;
+}
+
+/*diseño de boton de curso - hover*/
+.curso-button:hover {
+  background-color: #385a59;
+  border: 1px solid #2f7d7a;
+}
+
+/*diseño de boton de curso que esta seleccionado actualmente*/
+.curso-button.active {
+  background-color: #d4edda;
+  border-color: #28a745;
+  color: black;
+}
+
+/*diseño de listado de alumnos x curso*/
+.alumno-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #a3c9cc;
+  background-color: #cfb5ab2c;
+  margin-bottom: 10px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+/*diseño de correo y nombre de alumno*/
+.alumno-correo {
+  cursor: pointer;
+  color: #4ca3ff;
+  text-decoration: underline;
+}
+
+/*diseño de correo y nombre de alumno - hover*/
+.alumno-correo:hover {
+  color: #0056b3;
+}
+
+/*diseño de boton bloqueado o desbloqueado*/
+.toggle-button {
+  padding: 5px 10px;
+  border-radius: 80px;
+  background-color: #f8d7da;
+  border: none;
+  cursor: pointer;
+  color: #721c24;
+  transition: background-color 0.3s ease;
+  margin-left: 300px;
+}
+
+/*diseño de boton bloqueado o desbloqueado - hover*/
+.toggle-button:hover {
+  background-color: #f5c6cb;
+}
+
+/*diseño de letra de deuda*/
+.deuda {
+  font-style: italic;
+  color: #539395;
+}
+
+/*boton de contraer alumnos */
+.contraer-button {
+  padding: 5px 10px;
+  border-radius: 80px;
+  background-color: #f8d7da;
+  border: none;
+  cursor: pointer;
+  color: #721c24;
+  transition: background-color 0.3s ease;
+}
+
+/*container de mensajeria de correo */
+.mensajeria {
+  margin-top: 40px;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+/*container de donde se escribe el correo*/
+.correo-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #539395;
+  background-color: #cfb5ab4f;
+}
+
+/*diseño de boton de enviar*/
+.enviar-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/*diseño de boton enviar - hover*/
+.enviar-button:hover {
+  background-color: #218838;
+}
+
+/*mensajito de exito */
+.mensaje-exito {
+  color: #28a745;
+  margin-top: 10px;
+}
+
+.notificacion {
+  background-color: #ffcc00; /* Color de fondo amarillo */
+  color: #333; /* Color del texto */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ffa500; /* Color de borde naranja */
+  transition: opacity 0.5s ease;
+}
