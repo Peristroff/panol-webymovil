@@ -9,7 +9,6 @@ function AdministrarItems() {
         { id: 3, name: 'Producto Sucio', date: '15/08/23', category: 'Categoría 3', stock: 69, price: '30000' },
         { id: 4, name: 'Producto Cochino', date: '15/08/23', category: 'Categoría 3', stock: 69, price: '30000' },
         { id: 5, name: 'Producto Puerco', date: '15/08/23', category: 'Categoría 3', stock: 69, price: '30000' },
-
     ]);
 
     const handleEdit = (id) => {

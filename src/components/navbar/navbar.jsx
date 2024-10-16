@@ -11,7 +11,7 @@ function NavBarPanol() {
                 <Navbar.Brand as={Link} to="/" className="navbar-brand-custom">
                     <img
                         // src="https://w7.pngwing.com/pngs/1013/651/png-transparent-national-secondary-school-computer-icons-escuela-school-angle-building-logo-thumbnail.png"
-                        src="src/components/img/logo.jpg"
+                        src="/img/logo.jpg"
                         alt="Pañol"
                         width="40"
                         height="40"

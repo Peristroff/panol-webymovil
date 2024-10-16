@@ -6,8 +6,6 @@ import AdministrarSolicitudes from './components/administrarSolicitudes/administ
 import AdministrarPrestamos from './components/administrarPrestamos/administrarPrestamos.jsx';
 import NavBarPanol from "./components/navbar/navbar.jsx";
 import AdministrarUsuarios from "./components/administrarUsuarios/administrarUsuarios.jsx";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'
 import HistorialDePrestamos from "./components/historialDePrestamos/historialDePrestamos.jsx";
 import PerfilUsuario from './components/perfilUsuario/perfilUsuario.jsx';
 import PerfilAdmin from './components/perfilAdmin/perfilAdmin.jsx';
