@@ -1,12 +1,11 @@
 /*distribucion espacial de datos de admin*/
 .perfil-admin {
-  font-family: "Times New Roman", serif;
   padding: 15 px;
 }
 
 /*distribución de foto y nombre de perfil*/
 .admin-info {
-  text-align: center;
+  text-align:center;
   margin-bottom: 20px;
 }
 
@@ -14,10 +13,10 @@
 .profile-pic {
   width: 150px;
   height: 150px;
-  border-radius: 50%;
+  border-radius: 20%;
   object-fit: cover;
   margin-bottom: 10px;
-  border: 2px solid #539395;
+  border: 2px solid #814a36;
 }
 
 /*titulo Jerry Peña*/
@@ -44,23 +43,53 @@ h3 {
 
 /*Diseño boton de cursos x alumnos*/
 .curso-button {
+  background-color: #599492;
+  color: rgb(255, 255, 255);
+  border: 1px solid #814a36;
+  border-radius: 20px;
   padding: 10px 20px;
-  border-radius: 10px;
-  background-color: #8bb7ba;
-  border: 2px solid #477071;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+/* Contenedor de la info del profesor y notificaciones */
+.info-container {
+  background-color: #cfb5ab2c;
+  border: 1px solid #814a36;
+  border-radius: 5px;
+  padding: 15px;
+  justify-content: center;
+  display: center !important;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-right: 600px;
+  margin-left: 600px;
+}
+/* Botón de notificaciones */
+.notificaciones-button {
+  color: white;
+  border: none;
+  padding: 5px 10px;
   border-radius: 80px;
+  background-color: #f8d7da;
+  cursor: pointer;
+  color: #721c24;
+  transition: background-color 0.3s ease;
+  justify-content: center;
+  display: center !important;
+  margin-left: 40px;
 }
 
 /*diseño de boton de curso - hover*/
 .curso-button:hover {
-  background-color: #a3c9cc;
+  background-color: #385a59;
+  border: 1px solid #2f7d7a;
 }
 
 /*diseño de boton de curso que esta seleccionado actualmente*/
 .curso-button.active {
   background-color: #d4edda;
   border-color: #28a745;
+  color: black;
 }
 
 /*diseño de listado de alumnos x curso*/
@@ -159,4 +188,14 @@ h3 {
 .mensaje-exito {
   color: #28a745;
   margin-top: 10px;
+}
+
+.notificacion {
+  background-color: #ffcc00; /* Color de fondo amarillo */
+  color: #333; /* Color del texto */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ffa500; /* Color de borde naranja */
+  transition: opacity 0.5s ease;
 }

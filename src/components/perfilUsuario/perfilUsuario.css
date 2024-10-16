@@ -1,12 +1,14 @@
+/* Contenedor general del perfil de usuario */
 .perfil-usuario-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f0f8ff;
+  background-color: #cfb5ab2c;
   border-radius: 10px;
-  border: 1px solid #2f7d7a;
+  border: 1px solid #814a36;
 }
 
+/* Encabezado del perfil */
 .header-perfil {
   display: flex;
   justify-content: space-between;
@@ -14,119 +16,145 @@
   margin-bottom: 20px;
 }
 
+/* Estilo del título principal del perfil */
 .header-perfil h1 {
   font-size: 24px;
   font-weight: bold;
   text-align: center;
 }
 
+/* Icono y contador de notificaciones */
 .notificaciones-icon {
   position: relative;
 }
 
+/* Estilo del contador de notificaciones */
 .contador-notificaciones {
   background-color: red;
   color: white;
-  border-radius: 50%;
+  border-radius: 100%;
   padding: 5px 10px;
   position: absolute;
   top: -10px;
   right: -10px;
 }
 
+/* Contenedor del contenido del perfil */
 .perfil-content {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  margin-right: 10px;
 }
 
+/* Contenedor de la foto de perfil */
 .perfil-foto {
   flex-basis: 40%;
   text-align: center;
 }
 
+/* Estilo de la imagen de perfil */
 .foto-perfil {
-  width: 180px; /*ancho de la imagen*/
-  height: 180px; /*altura de la imagen*/
+  width: 180px;
+  height: 180px;
   object-fit: cover;
-  border: 1px solid #2f7d7a;
+  border: 1px solid #814a36;
   border-radius: 50%;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
+/* Input de cambiar foto de perfil */
 .file-input {
-  display: none; /* Oculta el input */
+  display: none;
 }
 
+/* Estilo del botón para cambiar la foto de perfil */
 .file-label {
   background-color: #599492;
   color: rgb(255, 255, 255);
-  border: 1px solid #2f7d7a;
-  border-radius: 20px; /* Bordes redondeados */
+  border: 1px solid #814a36;
+  border-radius: 20px;
   padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
+/* Cambio de color al pasar el cursor sobre el botón "cambiar foto de perfil" */
 .file-label:hover {
   background-color: #385a59;
-  border: 1px solid#2f7d7a; /* Color celeste más oscuro al pasar el cursor */
+  border: 1px solid #814a36;
 }
 
+/* Contenedor de la información del usuario */
 .info-usuario {
   flex-basis: 100%;
 }
 
+/* Contenedor de los datos del usuario */
 .datos-usuario {
-  font-family: "Times New Roman", serif;
-  background-color: #fff;
-  border: 1px solid #385a59;
+  background-color: #b0d2caae;
+  border: 1px solid #814a36;
   border-radius: 5px;
   padding: 15px;
   margin-bottom: 20px;
 }
 
+/* Contenedor de "Usuario Bloqueado por Mora" */
+.usuario-bloqueado {
+  background-color: #ffcccc;
+  border: 1px solid #814a36;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+
+/* Estilo de los textos dentro de los datos del usuario */
 .info-usuario p {
-  font-family: "Times New Roman", serif;
-  font-size: 16px;
+  font-size: 17px;
   margin-bottom: 10px;
 }
 
+/* Botones de editar, guardar y ver notificaciones */
 .editar-btn,
 .guardar-btn,
 .ver-notificaciones-btn {
-  font-family: "Times New Roman", serif;
-  background-color: #599492; /* Color celeste suave */
+  background-color: #599492;
   color: rgb(255, 255, 255);
-  border: 1px solid #2f7d7a;
-  border-radius: 20px; /* Bordes redondeados */
+  border: 1px solid #814a36;
+  border-radius: 20px;
   padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
+/* Cambio de color al pasar el cursor sobre los botones */
 .editar-btn:hover,
 .guardar-btn:hover,
 .ver-notificaciones-btn:hover {
   background-color: #385a59;
-  border: 1px solid #2f7d7a; /* Color celeste más oscuro al pasar el cursor */
+  border: 1px solid #2f7d7a;
 }
 
+/* Contenedor del historial de préstamos */
 .historial-prestamos {
-  font-family: "Times New Roman", serif;
-  background-color: #fff;
+  background-color: #b0d2caae;
   border: 1px solid #2f7d7a;
   border-radius: 5px;
   padding: 15px;
 }
 
+/* Lista de "Historial de Prestamos" */
 ul {
   list-style-type: none;
   padding: 0;
 }
 
+/* Elementos de la lista de préstamos */
 li {
-  background-color: #f9f9f9;
+  background-color: #faf4f1a6;
   border: 1px solid #2f7d7a;
   padding: 8px;
   margin-bottom: 5px;
