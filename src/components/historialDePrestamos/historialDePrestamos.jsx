@@ -45,6 +45,7 @@ function HistorialDePrestamos() {
                             <th>Stock</th>
                             <th>Cantidad a entregar</th>
                             <th>Precio por unidad</th>
+                            <th>Comprobante de préstamo</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -60,6 +61,9 @@ function HistorialDePrestamos() {
                                 <td>{item.stock}</td>
                                 <td>{item.userReceived}</td>
                                 <td>{item.price}</td>
+                                <td><Button variant="outline-primary" onClick={() => handleReject(item.id)} className="mb-2">
+                                        Descargar
+                                    </Button></td>
                             </tr>
                         ))}
                         </tbody>
