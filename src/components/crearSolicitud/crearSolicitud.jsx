@@ -10,7 +10,7 @@ function CrearSolicitud() {
             title: 'Materiales',
             text: 'Encuentra aquí materiales para realizar proyectos de manualidades.',
             img: "src/components/img/4.jpg",
-            path: '/administrarPrestamos'
+            path: '/materiales'
         },
         {
             title: 'Electrónica',
