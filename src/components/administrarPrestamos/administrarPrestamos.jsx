@@ -4,11 +4,11 @@ import './administrarPrestamos.css'; // Archivo CSS para personalización
 
 function AdministrarPrestamos() {
     const [items, setItems] = useState([
-        { id: 1, name: 'Notebook 1', user: 'Juan', date: '2024-9-20', returnDate: '2024-10-20', daysRemaining: 1, category: 'Categoría 1', userRecieved: 1, stock: 21,  price: '150000'},
-        { id: 2, name: 'Pantalla', user: 'Jerry', date: '2024-9-20', returnDate: '2024-10-20', daysRemaining: 1, category: 'Categoría 2', userRecieved: 2, stock: 11, price: '25000'},
-        { id: 3, name: 'Cargador', user: 'Pablo', date: '2024-9-20', returnDate: '2024-10-20', daysRemaining: 1, category: 'Categoría 3', userRecieved: 5, stock: 69, price: '30000'},
-        { id: 4, name: 'Notebook', user: 'Isaac', date: '2024-9-20', returnDate: '2024-10-20', daysRemaining: 1, category: 'Categoría 3', userRecieved: 1, stock: 69, price: '30000'},
-        { id: 5, name: 'Cable USB', user: 'Gema', date: '2024-9-20', returnDate: '2024-10-20', daysRemaining: 1, category: 'Categoría 3', userRecieved: 1, stock: 69, price: '30000'},
+        { id: 1, name: 'Notebook 1', user: 'Juan', date: '2024-9-20', returnDate: '2024-10-20', daysRemaining: 4, category: 'Categoría 1', userRecieved: 1, stock: 21,  price: '150000'},
+        { id: 2, name: 'Pantalla', user: 'Jerry', date: '2024-9-20', returnDate: '2024-10-20', daysRemaining: 4, category: 'Categoría 2', userRecieved: 2, stock: 11, price: '25000'},
+        { id: 3, name: 'Cargador', user: 'Pablo', date: '2024-9-20', returnDate: '2024-10-20', daysRemaining: 4, category: 'Categoría 3', userRecieved: 5, stock: 69, price: '30000'},
+        { id: 4, name: 'Notebook', user: 'Isaac', date: '2024-9-20', returnDate: '2024-10-20', daysRemaining: 4, category: 'Categoría 3', userRecieved: 1, stock: 69, price: '30000'},
+        { id: 5, name: 'Cable USB', user: 'Gema', date: '2024-9-20', returnDate: '2023-09-05', daysRemaining: "Vencido", category: 'Categoría 3', userRecieved: 1, stock: 69, price: '30000'},
     ]);
 
     const hoy = new Date();

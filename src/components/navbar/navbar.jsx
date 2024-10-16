@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom';
 import './navbar.css';
 
 function NavBarPanol() {
-    var userType = 'admin'; // Cambiar por 'student' o 'admin' para ver los cambios en la barra de navegación
+    const userType = 'admin'; // Cambiar por 'student' o 'admin' para ver los cambios en la barra de navegación
+
     if(userType === 'student') {
         return (
             <Navbar expand="lg" className="mb-4 custom-navbar shadow-lg">
                 <Navbar.Brand as={Link} to="/" className="navbar-brand-custom">
                     <img
                         // src="https://w7.pngwing.com/pngs/1013/651/png-transparent-national-secondary-school-computer-icons-escuela-school-angle-building-logo-thumbnail.png"
-                        src="/img/logo.jpg"
+                        src="src/components/img/logo.jpg"
                         alt="Pañol"
                         width="40"
                         height="40"
@@ -60,7 +61,7 @@ function NavBarPanol() {
                         <Nav.Link as={Link} to="/historial-de-prestamos" className="nav-item-custom">
                             Historial de préstamos
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/inventario" className="nav-item-custom">
+                        <Nav.Link as={Link} to="/administrarItems" className="nav-item-custom">
                             Inventario
                         </Nav.Link>
                         <Nav.Link as={Link} to="/perfil-admin" className="nav-item-custom">
@@ -74,6 +75,7 @@ function NavBarPanol() {
             </Navbar>
         );
     }
+    // Aquí es lo que se debería mostrar por defecto si el usuario no está logeado
     else
     {
         return (
