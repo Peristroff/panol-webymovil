@@ -1,0 +1,32 @@
+/* src/components/AlumnosList.css */
+
+.alumnos-list {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .alumnos-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .alumnos-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .alumnos-list button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .alumnos-list button:hover {
+    background-color: #0056b3;
+  }
+  
