@@ -2,27 +2,23 @@
     margin-top: 100px;
     padding: 20px;
     min-height: 100vh;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url(autenticacionImg.jpg);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url('src/components/img/autenticacionImg.jpg');
     background-position: left;
     background-size: cover;
-    position: relative;
+    position: absolute;
 }
 
 .login-box {
-    padding: 50px;
+    padding: 40px;
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 50%;
-    height: 90%;
+    width: 100%;
     max-width: 400px;
-    margin: 20px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 10;
-    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 h2 {
@@ -36,24 +32,35 @@ h2 {
     padding: 10px;
     font-size: 16px;
     margin-bottom: 20px;
+    box-sizing: border-box;
+    background-color: #f8f9fa; /* Fondo blanco para cada input */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para cada input */
 }
 
 .rounded-button {
     border-radius: 10px;
     padding: 12px;
-    background-color: #007bff;
+    background-color: #B57F67 !important;
     border: none;
     color: white;
     font-size: 16px;
     margin-top: 20px;
     width: 100%;
+    background-color: #f8f9fa; /* Fondo blanco para el botón */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para el botón */
 }
 
 .rounded-button:hover {
-    background-color: #0056b3;
+    background-color: #7c4c37 !important;
     color: #fff;
 }
 
 .login-box .form-label {
     margin-bottom: 10px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

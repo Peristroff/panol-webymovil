@@ -44,6 +44,9 @@ function Autenticacion() {
                                 Acceder
                             </Button>
                         </Form>
+                        <p className="mt-3">
+                            ¿Aún no tienes una cuenta? <a href="/registro" className="link-info">Regístrate aquí</a>
+                        </p>
                     </div>
                 </Col>
             </Row>
