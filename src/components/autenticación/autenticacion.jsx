@@ -23,9 +23,9 @@ function Autenticacion() {
             localStorage.setItem('isLoggedIn', true);
             // Redirige según el tipo de usuario
             if (response.data.user.tipoUsuario === 'admin') {
-                window.location.href = 'http://localhost:5173';
+                navigate('/perfil-admin');
             } else {
-                window.location.href = 'http://localhost:5173/crear-solicitud';
+                navigate('/crear-solicitud');
             }
         } catch (error) {
             if (error.response) {
@@ -72,9 +72,6 @@ function Autenticacion() {
                                 Acceder
                             </Button>
                         </Form>
-                        <p className="mt-3">
-                            ¿Aún no tienes una cuenta? <a href="/registro" className="link-info">Regístrate aquí</a>
-                        </p>
                     </div>
                 </Col>
             </Row>
