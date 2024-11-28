@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import AdministrarItems from "./components/administrarItems/administrarItems.jsx";
 import Autenticacion from './components/autenticación/autenticacion.jsx';
 import AdministrarSolicitudes from './components/administrarSolicitudes/administrarSolicitudes.jsx';
@@ -12,7 +12,8 @@ import PerfilAdmin from './components/perfilAdmin/perfilAdmin.jsx';
 import Home from "./components/home/home.jsx";
 import CrearSolicitud from "./components/crearSolicitud/crearSolicitud.jsx";
 import Materiales from "./components/catalogo/materiales.jsx";
-import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure this line is present
+import ProtectedRoute from './components/protectedRoute/protectedRoute.jsx'; // Asegúrate de importar el componente
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
@@ -36,28 +37,76 @@ function App() {
         document.title = titles[location.pathname] || 'Pañol';
     }, [location]);
 
+    useEffect(() => {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (!isLoggedIn || isLoggedIn === 'false') {
+            window.location.href = '/autenticacion';
+        }
+    }, []);
 
     return (
-        <>
-            {/* No renderizar navbar si es la página de autenticación o inicio*/}
-            {location.pathname === '/autenticacion' || location.pathname === '/' ? null : <NavBarPanol/>}
+        <div className="App">
+            <NavBarPanol />
             <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/administrarItems" element={<AdministrarItems/>}/>
-                <Route path="/autenticacion" element={<Autenticacion/>}/>
-                <Route path="/administrarPrestamos" element={<AdministrarPrestamos/>}/>
-                <Route path="/administrarUsuarios" element={<AdministrarUsuarios/>}/>
-                <Route path="/administrar-prestamos" element={<AdministrarPrestamos/>}/>
-                <Route path="/administrar-solicitudes" element={<AdministrarSolicitudes/>}/>
-                <Route path="/historial-de-prestamos" element={<HistorialDePrestamos/>}/>
-                <Route path="/perfil-admin" element={<PerfilAdmin/>}/>
-                <Route path="/perfil-alumno" element={<PerfilUsuario/>}/>
-                <Route path="/crear-solicitud" element={<CrearSolicitud/>}/>
-                <Route path="/materiales" element={<Materiales/>}/>
+                <Route path="/autenticacion" element={<Autenticacion />} />
+                <Route
+                    path="/administrar-items"
+                    element={
+                        <ProtectedRoute element={<AdministrarItems />} />
+                    }
+                />
+                <Route
+                    path="/administrar-solicitudes"
+                    element={
+                        <ProtectedRoute element={<AdministrarSolicitudes />} />
+                    }
+                />
+                <Route
+                    path="/administrar-prestamos"
+                    element={
+                        <ProtectedRoute element={<AdministrarPrestamos />} />
+                    }
+                />
+                <Route
+                    path="/administrar-usuarios"
+                    element={
+                        <ProtectedRoute element={<AdministrarUsuarios />} />
+                    }
+                />
+                <Route
+                    path="/historial-prestamos"
+                    element={
+                        <ProtectedRoute element={<HistorialDePrestamos />} />
+                    }
+                />
+                <Route
+                    path="/perfil-usuario"
+                    element={
+                        <ProtectedRoute element={<PerfilUsuario />} />
+                    }
+                />
+                <Route
+                    path="/perfil-admin"
+                    element={
+                        <ProtectedRoute element={<PerfilAdmin />} />
+                    }
+                />
+                <Route
+                    path="/crear-solicitud"
+                    element={
+                        <ProtectedRoute element={<CrearSolicitud />} />
+                    }
+                />
+                <Route
+                    path="/materiales"
+                    element={
+                        <ProtectedRoute element={<Materiales />} />
+                    }
+                />
+                <Route path="/" element={<Navigate to="/autenticacion" />} />
             </Routes>
-        </>
+        </div>
     );
 }
 
 export default App;
-
