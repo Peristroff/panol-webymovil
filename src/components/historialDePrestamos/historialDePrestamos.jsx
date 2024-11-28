@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Table, Button, Container, Row, Col } from 'react-bootstrap';
 import jsPDF from 'jspdf';
-
+import autoTable from 'jspdf-autotable';
 import './historialDePrestamos.css'; // Archivo CSS para personalización
 
 function HistorialDePrestamos() {
@@ -15,7 +15,6 @@ function HistorialDePrestamos() {
 
     const generatePDF = (item) => {
         const doc = new jsPDF();
-        doc.text('Disfruta tu producto en el pañol, recuerda devolverlo a tiempo!');
         doc.text('Recibo de Préstamo', 20, 20);
         doc.text(`ID: ${item.id}`, 20, 30);
         doc.text(`Nombre de producto: ${item.name}`, 20, 40);

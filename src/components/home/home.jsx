@@ -26,6 +26,11 @@ const cardData = [
         title: 'Administrar solicitudes',
         text: 'Los usuarios necesitaran los productos a tiempo, revisa estas solicitudes y aprueba o rechaza según corresponda.',
         path: '/administrar-solicitudes'
+    },
+    {
+        title: 'Administrar usuarios',
+        text: 'Los estudiantes y personal necesitan acceso al sistema, revisa y agrega usuarios.',
+        path: '/administrarUsuarios'
     }
 ];
 

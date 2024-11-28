@@ -1,93 +1,66 @@
-/* Contenedor principal */
 .login-container {
-    display: flex; /* Para centrar el contenido */
-    justify-content: center; /* Centrado horizontal */
-    align-items: center; /* Centrado vertical */
-    height: 100vh; /* Altura completa de la pantalla */
-    margin: 0; /* Sin márgenes */
-    padding: 0; /* Sin relleno */
-    background-color: #f5f5f5; /* Fondo claro */
+    margin-top: 100px;
+    padding: 20px;
+    min-height: 100vh;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url('src/components/img/autenticacionImg.jpg');
+    background-position: left;
+    background-size: cover;
+    position: absolute;
 }
 
-/* Caja del formulario */
 .login-box {
-    padding: 5vh; /* Espaciado interno */
-    background-color: #fff; /* Fondo blanco */
-    border-radius: 1vh; /* Bordes redondeados */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    width: 80vw; /* Ancho adaptable */
-    max-width: 40vw; /* Ancho máximo */
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 2vh; /* Espaciado entre elementos */
-    box-sizing: border-box; /* Incluye padding en el ancho total */
-    justify-content: center;
+    gap: 20px;
 }
 
-/* Inputs */
+h2 {
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
 .rounded-input {
-    border-radius: 0.5vh; /* Bordes redondeados */
-    padding: 1.5vh; /* Espaciado interno */
-    font-size: 2vh; /* Tamaño del texto */
-    border: 1px solid #ddd; /* Borde gris claro */
-    width: 100%; /* Ancho completo */
-    box-sizing: border-box; /* Incluye padding en el ancho total */
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    background-color: #f8f9fa; /* Fondo blanco para cada input */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para cada input */
 }
 
-/* Botón */
 .rounded-button {
-    border-radius: 0.5vh; /* Bordes redondeados */
-    padding: 1.5vh; /* Espaciado interno */
-    font-size: 2vh; /* Tamaño del texto */
-    background-color: #007bff; /* Azul */
+    border-radius: 10px;
+    padding: 12px;
+    background-color: #B57F67 !important;
     border: none;
     color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%; /* Ancho completo */
-    box-sizing: border-box; /* Incluye padding en el ancho total */
+    font-size: 16px;
+    margin-top: 20px;
+    width: 100%;
+    background-color: #f8f9fa; /* Fondo blanco para el botón */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para el botón */
 }
 
 .rounded-button:hover {
-    background-color: #0056b3; /* Azul más oscuro */
+    background-color: #7c4c37 !important;
+    color: #fff;
 }
 
-/* Título */
-h2 {
-    margin: 0;
-    margin-bottom: 2vh; /* Espaciado inferior */
-    color: #333; /* Texto oscuro */
-    text-align: center; /* Centrado */
-    font-size: 3vh; /* Tamaño del texto */
-    font-weight: bold;
+.login-box .form-label {
+    margin-bottom: 10px;
 }
 
-/* Texto adicional */
-p {
-    margin: 0;
-    margin-top: 1vh; /* Espaciado superior */
-    color: #666; /* Texto gris */
-    text-align: center; /* Centrado */
-    font-size: 1.5vh; /* Tamaño del texto */
-}
-
-/* Enlace */
-p a {
-    color: #007bff; /* Azul */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-p a:hover {
-    color: #0056b3; /* Azul más oscuro */
-    text-decoration: underline;
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-    .login-box {
-        padding: 2vh;
-        max-width: 90vw; /* Ancho máximo para pantallas pequeñas */
-    }
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

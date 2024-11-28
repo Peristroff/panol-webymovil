@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import AdministrarItems from "./components/administrarItems/administrarItems.jsx";
 import Autenticacion from './components/autenticación/autenticacion.jsx';
 import AdministrarSolicitudes from './components/administrarSolicitudes/administrarSolicitudes.jsx';
@@ -12,8 +12,7 @@ import PerfilAdmin from './components/perfilAdmin/perfilAdmin.jsx';
 import Home from "./components/home/home.jsx";
 import CrearSolicitud from "./components/crearSolicitud/crearSolicitud.jsx";
 import Materiales from "./components/catalogo/materiales.jsx";
-import ProtectedRoute from './components/protectedRoute/protectedRoute.jsx'; // Asegúrate de importar el componente
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure this line is present
 import './App.css';
 
 function App() {
@@ -37,9 +36,11 @@ function App() {
         document.title = titles[location.pathname] || 'Pañol';
     }, [location]);
 
+
     return (
-        <div className="App">
-            {location.pathname !== '/autenticacion' && <NavBarPanol />}
+        <>
+            {/* No renderizar navbar si es la página de autenticación o inicio*/}
+            {location.pathname === '/autenticacion' || location.pathname === '/' ? null : <NavBarPanol/>}
             <Routes>
                 <Route path="/autenticacion" element={<Autenticacion />} />
                 <Route
@@ -103,8 +104,9 @@ function App() {
                     }
                 />
             </Routes>
-        </div>
+        </>
     );
 }
 
 export default App;
+

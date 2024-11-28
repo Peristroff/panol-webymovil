@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import './autenticacion.css';
-import axios from 'axios';
 
 function Autenticacion() {
-    const [correo, setCorreo] = useState('');
-    const [contrasena, setContrasena] = useState('');
-    const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         try {
             const response = await axios.post('http://localhost:3000/login', {
@@ -44,16 +41,16 @@ function Autenticacion() {
     return (
         <Container className="login-container">
             <Row className="justify-content-md-center">
-                <Col md={6}>
+                <Col md="4" className="d-flex justify-content-center">
                     <div className="login-box">
-                        <h2>Iniciar Sesión</h2>
+                        <h2 className="text-center">Iniciar Sesión</h2>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Control
                                     type="email"
-                                    placeholder="Correo electrónico"
-                                    value={correo}
-                                    onChange={(e) => setCorreo(e.target.value)}
+                                    placeholder="Ingresar Email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     className="rounded-input"
                                 />
                             </Form.Group>
@@ -62,19 +59,23 @@ function Autenticacion() {
                                 <Form.Control
                                     type="password"
                                     placeholder="Contraseña"
-                                    value={contrasena}
-                                    onChange={(e) => setContrasena(e.target.value)}
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
                                     className="rounded-input"
                                 />
                             </Form.Group>
 
-                            <Button variant="primary" type="submit" className="rounded-button">
+                            <Button variant="primary" type="submit" className="w-100 rounded-button">
                                 Acceder
                             </Button>
                         </Form>
+                        <p className="mt-3">
+                            ¿Aún no tienes una cuenta? <a href="/registro" className="link-info">Regístrate aquí</a>
+                        </p>
                     </div>
                 </Col>
             </Row>
+
         </Container>
     );
 }
