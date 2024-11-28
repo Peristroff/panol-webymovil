@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import AdministrarItems from "./components/administrarItems/administrarItems.jsx";
 import Autenticacion from './components/autenticación/autenticacion.jsx';
 import AdministrarSolicitudes from './components/administrarSolicitudes/administrarSolicitudes.jsx';
@@ -12,101 +12,73 @@ import PerfilAdmin from './components/perfilAdmin/perfilAdmin.jsx';
 import Home from "./components/home/home.jsx";
 import CrearSolicitud from "./components/crearSolicitud/crearSolicitud.jsx";
 import Materiales from "./components/catalogo/materiales.jsx";
-import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure this line is present
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
-    const [count, setCount] = useState(0);
-
-    // Cambiar el título de la página según la ruta
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [userData, setUserData] = useState(null);
     const location = useLocation();
+
+    useEffect(() => {
+        // Verificar si el usuario está autenticado al cargar la aplicación
+        const user = JSON.parse(localStorage.getItem('userData'));
+        if (user) {
+            setIsLoggedIn(true);
+            setUserData(user);
+        } else {
+            setIsLoggedIn(false);
+            setUserData(null);
+        }
+    }, []);
+
+    // Cambiar el título de la página según la ruta actual
     useEffect(() => {
         const titles = {
             '/': 'Inicio - Administración de Items',
             '/autenticacion': 'Autenticación',
-            '/administrar-prestamos': 'Administración de Préstamos',
+            '/administrar-items': 'Administración de Items',
             '/administrar-solicitudes': 'Administración de Solicitudes',
-            '/historial-de-prestamos': 'Historial de Préstamos',
-            '/perfil-admin': 'Perfil de Coordinador',
+            '/administrar-prestamos': 'Administración de Préstamos',
+            '/administrar-usuarios': 'Administración de Usuarios',
+            '/historial-prestamos': 'Historial de Préstamos',
+            '/perfil-admin': 'Perfil de Administrador',
+            '/perfil-usuario': 'Perfil de Usuario',
             '/crear-solicitud': 'Crear Solicitud',
             '/materiales': 'Materiales',
-            '/perfil-alumno': 'Perfil de Alumno',
+            '/home': 'Inicio',
         };
-        // Nombre por defecto si no se encuentra la ruta
         document.title = titles[location.pathname] || 'Pañol';
     }, [location]);
 
+    // Condicional para mostrar la barra de navegación
+    const showNavBar = location.pathname !== '/autenticacion';
 
     return (
-        <>
-            {/* No renderizar navbar si es la página de autenticación o inicio*/}
-            {location.pathname === '/autenticacion' || location.pathname === '/' ? null : <NavBarPanol/>}
+        <div className="App">
+            {showNavBar && <NavBarPanol />}
             <Routes>
                 <Route path="/autenticacion" element={<Autenticacion />} />
-                <Route
-                    path="/administrar-items"
-                    element={
-                        <ProtectedRoute element={<AdministrarItems />} />
-                    }
-                />
-                <Route
-                    path="/administrar-solicitudes"
-                    element={
-                        <ProtectedRoute element={<AdministrarSolicitudes />} />
-                    }
-                />
-                <Route
-                    path="/administrar-prestamos"
-                    element={
-                        <ProtectedRoute element={<AdministrarPrestamos />} />
-                    }
-                />
-                <Route
-                    path="/administrar-usuarios"
-                    element={
-                        <ProtectedRoute element={<AdministrarUsuarios />} />
-                    }
-                />
-                <Route
-                    path="/historial-prestamos"
-                    element={
-                        <ProtectedRoute element={<HistorialDePrestamos />} />
-                    }
-                />
-                <Route
-                    path="/perfil-usuario"
-                    element={
-                        <ProtectedRoute element={<PerfilUsuario />} />
-                    }
-                />
-                <Route
-                    path="/perfil-admin"
-                    element={
-                        <ProtectedRoute element={<PerfilAdmin />} />
-                    }
-                />
-                <Route
-                    path="/crear-solicitud"
-                    element={
-                        <ProtectedRoute element={<CrearSolicitud />} />
-                    }
-                />
-                <Route
-                    path="/materiales"
-                    element={
-                        <ProtectedRoute element={<Materiales />} />
-                    }
-                />
-                <Route 
-                    path="/" 
-                    element={
-                        <ProtectedRoute element={<Home/>}/>
-                    }
-                />
+
+                {/* Rutas para administradores */}
+                <Route path="/home" element={<Home />} />
+                <Route path="/administrar-items" element={<AdministrarItems />} />
+                <Route path="/administrar-solicitudes" element={<AdministrarSolicitudes />} />
+                <Route path="/administrar-prestamos" element={<AdministrarPrestamos />} />
+                <Route path="/administrar-usuarios" element={<AdministrarUsuarios />} />
+                <Route path="/historial-prestamos" element={<HistorialDePrestamos />} />
+                <Route path="/perfil-admin" element={<PerfilAdmin />} />
+
+                {/* Rutas para usuarios */}
+                <Route path="/perfil-usuario" element={<PerfilUsuario />} />
+                <Route path="/crear-solicitud" element={<CrearSolicitud />} />
+                <Route path="/materiales" element={<Materiales />} />
+
+                {/* Ruta predeterminada */}
+                <Route path="/" element={<Navigate to="/home" />} />
             </Routes>
-        </>
+        </div>
     );
 }
 
 export default App;
-

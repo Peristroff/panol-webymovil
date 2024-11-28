@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './autenticacion.css';
+import axios from 'axios';
 
 function Autenticacion() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [correo, setCorreo] = useState('');
+    const [contrasena, setContrasena] = useState('');
+    const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         try {
             const response = await axios.post('http://localhost:3000/login', {
@@ -20,9 +23,9 @@ function Autenticacion() {
             localStorage.setItem('isLoggedIn', true);
             // Redirige según el tipo de usuario
             if (response.data.user.tipoUsuario === 'admin') {
-                window.location.href = 'http://localhost:5173';
+                navigate('/home');
             } else {
-                window.location.href = 'http://localhost:5173/crear-solicitud';
+                navigate('/crear-solicitud');
             }
         } catch (error) {
             if (error.response) {
@@ -41,16 +44,16 @@ function Autenticacion() {
     return (
         <Container className="login-container">
             <Row className="justify-content-md-center">
-                <Col md="4" className="d-flex justify-content-center">
+                <Col md={6}>
                     <div className="login-box">
-                        <h2 className="text-center">Iniciar Sesión</h2>
+                        <h2>Iniciar Sesión</h2>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Control
                                     type="email"
-                                    placeholder="Ingresar Email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Correo electrónico"
+                                    value={correo}
+                                    onChange={(e) => setCorreo(e.target.value)}
                                     className="rounded-input"
                                 />
                             </Form.Group>
@@ -59,23 +62,19 @@ function Autenticacion() {
                                 <Form.Control
                                     type="password"
                                     placeholder="Contraseña"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    value={contrasena}
+                                    onChange={(e) => setContrasena(e.target.value)}
                                     className="rounded-input"
                                 />
                             </Form.Group>
 
-                            <Button variant="primary" type="submit" className="w-100 rounded-button">
+                            <Button variant="primary" type="submit" className="rounded-button">
                                 Acceder
                             </Button>
                         </Form>
-                        <p className="mt-3">
-                            ¿Aún no tienes una cuenta? <a href="/registro" className="link-info">Regístrate aquí</a>
-                        </p>
                     </div>
                 </Col>
             </Row>
-
         </Container>
     );
 }
