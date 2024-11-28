@@ -15,27 +15,30 @@ import Materiales from "./components/catalogo/materiales.jsx";
 import ProtectedRoute from './components/protectedRoute/protectedRoute.jsx'; // Asegúrate de importar el componente
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import axios from "axios";
 
-function App() {
-    const [count, setCount] = useState(0);
+    function App() {
+        const [message, setMessage] = useState('');
 
-    // Cambiar el título de la página según la ruta
-    const location = useLocation();
-    useEffect(() => {
-        const titles = {
-            '/': 'Inicio - Administración de Items',
-            '/autenticacion': 'Autenticación',
-            '/administrar-prestamos': 'Administración de Préstamos',
-            '/administrar-solicitudes': 'Administración de Solicitudes',
-            '/historial-de-prestamos': 'Historial de Préstamos',
-            '/perfil-admin': 'Perfil de Coordinador',
-            '/crear-solicitud': 'Crear Solicitud',
-            '/materiales': 'Materiales',
-            '/perfil-alumno': 'Perfil de Alumno',
-        };
-        // Nombre por defecto si no se encuentra la ruta
-        document.title = titles[location.pathname] || 'Pañol';
-    }, [location]);
+      const [count, setCount] = useState(0);
+
+       //Cambiar el título de la página según la ruta
+      const location = useLocation();
+      useEffect(() => {
+          const titles = {
+              '/': 'Inicio - Administración de Items',
+              '/autenticacion': 'Autenticación',
+              '/administrar-prestamos': 'Administración de Préstamos',
+              '/administrar-solicitudes': 'Administración de Solicitudes',
+              '/historial-de-prestamos': 'Historial de Préstamos',
+              '/perfil-admin': 'Perfil de Coordinador',
+              '/crear-solicitud': 'Crear Solicitud',
+              '/materiales': 'Materiales',
+              '/perfil-alumno': 'Perfil de Alumno',
+          };
+          // Nombre por defecto si no se encuentra la ruta
+          document.title = titles[location.pathname] || 'Pañol';
+      }, [location]);
 
     useEffect(() => {
         const isLoggedIn = localStorage.getItem('isLoggedIn');
