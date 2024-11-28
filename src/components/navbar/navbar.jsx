@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './navbar.css';
 
 function NavBarPanol() {
-    const userType = 'admin'; // Cambiar por 'student' o 'admin' para ver los cambios en la barra de navegación
+    const userType = 'student'; // Cambiar por 'student' o 'admin' para ver los cambios en la barra de navegación
 
     if(userType === 'student') {
         return (

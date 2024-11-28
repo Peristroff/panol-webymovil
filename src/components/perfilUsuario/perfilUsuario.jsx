@@ -1,28 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./PerfilUsuario.css";
 
-const PerfilUsuario = ({ userType }) => {
-  const [isMoroso, setIsMoroso] = useState(true);
-  const [nombreUsuario, setNombreUsuario] = useState("Gema Rojas");
-  const [notificaciones, setNotificaciones] = useState([
-    "1. Entregaste con éxito la laptop.",
-    "2. Debes devolver el libro antes del lunes.",
-  ]);
-  const [historialPrestamos, setHistorialPrestamos] = useState([
-    { item: "Laptop", fecha: "2024-10-01", status: "Entregado" },
-    { item: "Libro de Cálculo", fecha: "2024-09-28", status: "Pendiente" },
-  ]);
+const PerfilUsuario = ({ userType, userId }) => {
+  const [isMoroso, setIsMoroso] = useState(false);
+  const [nombreUsuario, setNombreUsuario] = useState("");
+  const [notificaciones, setNotificaciones] = useState([]);
+  const [historialPrestamos, setHistorialPrestamos] = useState("");
   const [fotoPerfil, setFotoPerfil] = useState(null);
-  const [numNotificaciones, setNumNotificaciones] = useState(
-    notificaciones.length
-  );
   const [estadoAlumno, setEstadoAlumno] = useState("Habilitado");
-  const [idUsuario, setIdUsuario] = useState("12345");
-  const [fechaCreacion, setFechaCreacion] = useState("2024-10-16");
-  const [correoContacto, setCorreoContacto] = useState("g.rojasfabre@pañol.cl");
+  const [_id, set_id] = useState("");
+  const [fechaCreacion, setFechaCreacion] = useState("");
+  const [correoContacto, setCorreoContacto] = useState("");
   const [isEditing, setIsEditing] = useState(false);
+  const [diasRetraso, setDiasRetraso] = useState(0); // Nuevo estado para días de retraso
 
-  const handleImageChange = (e) => {
+  const navigate = useNavigate();
+
+  // Obtener datos del perfil desde el backend
+  useEffect(() => {
+    const fetchPerfil = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/profile/${userId}`);
+        if (!response.ok) throw new Error("Error al obtener datos del perfil");
+        const data = await response.json();
+
+        // Actualizar estados con los datos recibidos
+        setNombreUsuario(data.nombreUsuario);
+        setNotificaciones(data.notificaciones || []);
+        setHistorialPrestamos(data.historialPrestamos || "Sin historial");
+        setFotoPerfil(data.imagenPerfil || null);
+        setEstadoAlumno(data.moroso ? "Moroso" : "Al día");
+        set_id(data._id);
+        setFechaCreacion(data.createdAt);
+        setCorreoContacto(data.correo);
+        setIsMoroso(data.moroso || false);
+
+        // Calcular días de retraso si es moroso
+        if (data.moroso && data.fechaUltimoPrestamo) {
+          const fechaPrestamo = new Date(data.fechaUltimoPrestamo);
+          const hoy = new Date();
+          const dias = Math.ceil(
+            (hoy - fechaPrestamo) / (1000 * 60 * 60 * 24) // Convertir diferencia en días
+          );
+          setDiasRetraso(dias);
+        }
+      } catch (error) {
+        console.error("Error al obtener datos del perfil:", error);
+      }
+    };
+
+    fetchPerfil();
+  }, [userId]);
+
+  // Manejar cambio de imagen de perfil
+  const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (
       file &&
@@ -30,15 +62,51 @@ const PerfilUsuario = ({ userType }) => {
         file.type === "image/jpeg" ||
         file.type === "image/jpg")
     ) {
-      setFotoPerfil(URL.createObjectURL(file));
+      const formData = new FormData();
+      formData.append("imagenPerfil", file);
+
+      try {
+        const response = await fetch(`http://localhost:3000/profile/${userId}`, {
+          method: "PUT",
+          body: formData,
+        });
+
+        if (!response.ok) throw new Error("Error al actualizar la imagen de perfil");
+        const data = await response.json();
+        setFotoPerfil(data.imagenPerfil); // Actualizar la foto en el estado
+        alert("Foto de perfil actualizada correctamente");
+      } catch (error) {
+        console.error("Error al actualizar la imagen de perfil:", error);
+        alert("Error al actualizar la foto de perfil");
+      }
     } else {
       alert("Por favor, sube una imagen en formato PNG, JPEG o JPG.");
     }
   };
 
-  const handleSave = () => {
-    setIsEditing(false);
-    alert("Perfil Actualizado");
+  // Manejar guardar cambios en el perfil
+  const handleSave = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/profile/${userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nombreUsuario,
+          correo: correoContacto,
+          moroso: isMoroso,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Error al actualizar el perfil");
+      const data = await response.json();
+      setIsEditing(false);
+      alert("Perfil actualizado correctamente");
+    } catch (error) {
+      console.error("Error al actualizar el perfil:", error);
+      alert("Error al guardar los cambios del perfil");
+    }
   };
 
   return (
@@ -49,10 +117,18 @@ const PerfilUsuario = ({ userType }) => {
           {userType === "coordinador" ? "Coordinador" : "Alumno"})
         </h1>
         <div className="notificaciones-icon">
-          <span className="contador-notificaciones">{numNotificaciones}</span>
+          <span className="contador-notificaciones">{notificaciones.length}</span>
           <button
             className="ver-notificaciones-btn"
-            onClick={() => alert(notificaciones.join("\n"))}
+            onClick={() =>
+              alert(
+                isMoroso
+                  ? `Tienes un retraso de aproximadamente ${diasRetraso} días en tus devoluciones.\n\nNotificaciones:\n${notificaciones.join(
+                      "\n"
+                    )}`
+                  : `Notificaciones:\n${notificaciones.join("\n")}`
+              )
+            }
           >
             Ver Notificaciones
           </button>
@@ -83,19 +159,15 @@ const PerfilUsuario = ({ userType }) => {
             {isEditing ? (
               <>
                 <p>
-                  <strong>ID: </strong>
-                  <input
-                    type="text"
-                    value={idUsuario}
-                    onChange={(e) => setIdUsuario(e.target.value)}
-                  />
+                  <strong>_id: </strong>
+                  {_id}
                 </p>
                 <p>
-                  <strong>Fecha de creación: </strong>
+                  <strong>Nombre del Alumno: </strong>
                   <input
-                    type="date"
-                    value={fechaCreacion}
-                    onChange={(e) => setFechaCreacion(e.target.value)}
+                    type="text"
+                    value={nombreUsuario}
+                    onChange={(e) => setNombreUsuario(e.target.value)}
                   />
                 </p>
                 <p>
@@ -112,23 +184,23 @@ const PerfilUsuario = ({ userType }) => {
                     value={estadoAlumno}
                     onChange={(e) => setEstadoAlumno(e.target.value)}
                   >
-                    <option value="Habilitado">Habilitado</option>
-                    <option value="No habilitado">No habilitado</option>
+                    <option value="Habilitado">Al día</option>
+                    <option value="Moroso">Moroso</option>
                   </select>
                 </p>
                 <button className="guardar-btn" onClick={handleSave}>
-                  Guardar cambios
+                  Guardar Cambios
                 </button>
               </>
             ) : (
               <>
                 <p>
-                  <strong>ID: </strong>
-                  {idUsuario}
+                  <strong>_id: </strong>
+                  {_id}
                 </p>
                 <p>
                   <strong>Fecha de creación: </strong>
-                  {fechaCreacion}
+                  {new Date(fechaCreacion).toLocaleDateString()}
                 </p>
                 <p>
                   <strong>Correo de contacto: </strong>
@@ -138,10 +210,7 @@ const PerfilUsuario = ({ userType }) => {
                   <strong>Estado: </strong>
                   {isMoroso ? "Moroso" : "Al día"}
                 </p>
-                <button
-                  className="editar-btn"
-                  onClick={() => setIsEditing(true)}
-                >
+                <button className="editar-btn" onClick={() => setIsEditing(true)}>
                   Editar Perfil
                 </button>
               </>
@@ -149,26 +218,12 @@ const PerfilUsuario = ({ userType }) => {
           </div>
           {isMoroso && (
             <div className="bloqueado-por-mora">
-              <p>⚠️ El usuario está bloqueado por mora y no puede realizar solicitudes.</p>
+              <p>⚠️ No puedes crear solicitudes porque estás moroso. Devuelve los pendientes para habilitar esta función.</p>
             </div>
-          )}
-          {!isMoroso && (
-            <button
-              className="solicitud-btn"
-              onClick={() => alert("Solicitud realizada con éxito.")}
-            >
-              Realizar Solicitud
-            </button>
           )}
           <div className="historial-prestamos">
             <h3>Historial de Préstamos:</h3>
-            <ul>
-              {historialPrestamos.map((prestamo, index) => (
-                <li key={index}>
-                  {prestamo.item} - {prestamo.fecha} - {prestamo.status}
-                </li>
-              ))}
-            </ul>
+            <p>{historialPrestamos}</p>
           </div>
         </div>
       </div>
@@ -177,25 +232,3 @@ const PerfilUsuario = ({ userType }) => {
 };
 
 export default PerfilUsuario;
-
-// useEffect(() => {
-//   fetchData();
-// }, []);
-// const fetchData = async () => {
-// try {
-// const response = await axios.get(
-//   'http:localhost:3000/profile/6744a4f315a2c8f880db3e8a'
-// );
-// console.log(response);
-
-// } catch (error) {
-// console.error("Error fetching data:", error);
-//  Manejo del error
-// }
-// };
-// return (
-// <div>
-// <h1>Conexión Backend y Frontend</h1>
-// <p>{'el juanito se la come'}</p>
-// </div>
-// );
