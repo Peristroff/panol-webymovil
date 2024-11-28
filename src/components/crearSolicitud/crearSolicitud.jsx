@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Table, Button, Form, Container, Row, Col, Card, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './crearSolicitud.css'; // Archivo CSS para personalización
 
 function CrearSolicitud() {
 
-    const cardData = [
+    const defaultcardData = [
         {
             title: 'Materiales',
             text: 'Encuentra aquí materiales para realizar proyectos de manualidades.',
@@ -31,6 +32,19 @@ function CrearSolicitud() {
             path: '/administrar-solicitudes'
         },
     ];
+
+    const [cardData, setCardData] = useState(defaultcardData);
+
+    useEffect(() => {
+        // Realizar una solicitud GET al backend para obtener los datos
+        axios.get('http://localhost:3000/requests')
+            .then(response => {
+                setCardData(response.data);
+            })
+            .catch(error => {
+                console.error('Error al obtener los datos:', error);
+            });
+    }, []);
 
     return (
         <div>
