@@ -23,9 +23,9 @@ function Autenticacion() {
             localStorage.setItem('isLoggedIn', true);
             // Redirige según el tipo de usuario
             if (response.data.user.tipoUsuario === 'admin') {
-                navigate('/perfil-admin');
+                window.location.href = 'http://localhost:5173';
             } else {
-                navigate('/crear-solicitud');
+                window.location.href = 'http://localhost:5173/crear-solicitud';
             }
         } catch (error) {
             if (error.response) {

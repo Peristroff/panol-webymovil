@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';  // Importar el hook useState y useEffect
 import { Table, Button, Form, Container, Row, Col, Card, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './crearSolicitud.css'; // Archivo CSS para personalización
 
-function CrearSolicitud() {
-
+function crearSolicitud() {
     const defaultcardData = [
         {
             title: 'Materiales',
@@ -59,7 +58,7 @@ function CrearSolicitud() {
                                 <Card>
                                     <Card.Body>
                                         <Card.Title>{card.title}</Card.Title>
-                                        <img src={card.img} width="100" />
+                                        <img src={card.img} width="100" alt={card.title} />
                                         <Card.Text>
                                             {card.text}
                                         </Card.Text>
@@ -74,4 +73,4 @@ function CrearSolicitud() {
     );
 }
 
-export default CrearSolicitud;
+export default crearSolicitud;

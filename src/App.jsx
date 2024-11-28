@@ -96,7 +96,12 @@ function App() {
                         <ProtectedRoute element={<Materiales />} />
                     }
                 />
-                <Route path="/" element={<Navigate to="/autenticacion" />} />
+                <Route 
+                    path="/" 
+                    element={
+                        <ProtectedRoute element={<Home/>}/>
+                    }
+                />
             </Routes>
         </div>
     );
