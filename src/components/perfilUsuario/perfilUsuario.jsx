@@ -1,98 +1,141 @@
 import React, { useState, useEffect } from "react";
-import "./PerfilUsuario.css"; // Importamos el archivo CSS para estilos
+import { useNavigate } from "react-router-dom";
+import "./PerfilUsuario.css";
 
-// Componente PerfilUsuario que recibe la prop 'userType' (tipo de usuario)
-const PerfilUsuario = ({ userType }) => {
-  // Estado para indicar si el usuario está moroso
-  const [isMoroso, setIsMoroso] = useState(true);
-
-  // Estado para el nombre del usuario
-  const [nombreUsuario, setNombreUsuario] = useState("Gema Rojas");
-
-  // Estado para las notificaciones del usuario
-  const [notificaciones, setNotificaciones] = useState([
-    // Lista de notificaciones iniciales
-    "1. Entregaste con éxito la laptop.",
-    "2. Debes devolver el libro antes del lunes.",
-  ]);
-
-  // Estado para el historial de préstamos del usuario
-  const [historialPrestamos, setHistorialPrestamos] = useState([
-    { item: "Laptop", fecha: "2024-10-01", status: "Entregado" },
-    { item: "Libro de Cálculo", fecha: "2024-09-28", status: "Pendiente" },
-  ]);
-
-  //foto de perfil del usuario
+const PerfilUsuario = ({ userType, userId }) => {
+  const [isMoroso, setIsMoroso] = useState(false);
+  const [nombreUsuario, setNombreUsuario] = useState("");
+  const [notificaciones, setNotificaciones] = useState([]);
+  const [historialPrestamos, setHistorialPrestamos] = useState("");
   const [fotoPerfil, setFotoPerfil] = useState(null);
-
-  //cantidad de notificaciones
-  const [numNotificaciones, setNumNotificaciones] = useState(
-    notificaciones.length
-  );
-
-  //estado del alumno (habilitado o no)
   const [estadoAlumno, setEstadoAlumno] = useState("Habilitado");
-
-  //ID del usuario
-  const [idUsuario, setIdUsuario] = useState("12345");
-
-  //fecha de creación del perfil
-  const [fechaCreacion, setFechaCreacion] = useState("2024-10-16");
-
-  //correo de contacto del usuario
-  const [correoContacto, setCorreoContacto] = useState(
-    "g.rojasfabre@pañol.cl"
-  );
-
-  // Estado para controlar si el perfil está en modo edición
+  const [_id, set_id] = useState("");
+  const [fechaCreacion, setFechaCreacion] = useState("");
+  const [correoContacto, setCorreoContacto] = useState("");
   const [isEditing, setIsEditing] = useState(false);
+  const [diasRetraso, setDiasRetraso] = useState(0); // Nuevo estado para días de retraso
 
-  // Función que maneja el cambio de la imagen de perfil
-  const handleImageChange = (e) => {
-    const file = e.target.files[0]; // Obtenemos el archivo seleccionado
+  const navigate = useNavigate();
+
+  // Obtener datos del perfil desde el backend
+  useEffect(() => {
+    const fetchPerfil = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/profile/${userId}`);
+        if (!response.ok) throw new Error("Error al obtener datos del perfil");
+        const data = await response.json();
+
+        // Actualizar estados con los datos recibidos
+        setNombreUsuario(data.nombreUsuario);
+        setNotificaciones(data.notificaciones || []);
+        setHistorialPrestamos(data.historialPrestamos || "Sin historial");
+        setFotoPerfil(data.imagenPerfil || null);
+        setEstadoAlumno(data.moroso ? "Moroso" : "Al día");
+        set_id(data._id);
+        setFechaCreacion(data.createdAt);
+        setCorreoContacto(data.correo);
+        setIsMoroso(data.moroso || false);
+
+        // Calcular días de retraso si es moroso
+        if (data.moroso && data.fechaUltimoPrestamo) {
+          const fechaPrestamo = new Date(data.fechaUltimoPrestamo);
+          const hoy = new Date();
+          const dias = Math.ceil(
+            (hoy - fechaPrestamo) / (1000 * 60 * 60 * 24) // Convertir diferencia en días
+          );
+          setDiasRetraso(dias);
+        }
+      } catch (error) {
+        console.error("Error al obtener datos del perfil:", error);
+      }
+    };
+
+    fetchPerfil();
+  }, [userId]);
+
+  // Manejar cambio de imagen de perfil
+  const handleImageChange = async (e) => {
+    const file = e.target.files[0];
     if (
       file &&
       (file.type === "image/png" ||
         file.type === "image/jpeg" ||
         file.type === "image/jpg")
     ) {
-      // Validamos que el archivo sea PNG, JPEG o JPG
-      setFotoPerfil(URL.createObjectURL(file)); // Actualizamos la foto de perfil con la URL del archivo
+      const formData = new FormData();
+      formData.append("imagenPerfil", file);
+
+      try {
+        const response = await fetch(`http://localhost:3000/profile/${userId}`, {
+          method: "PUT",
+          body: formData,
+        });
+
+        if (!response.ok) throw new Error("Error al actualizar la imagen de perfil");
+        const data = await response.json();
+        setFotoPerfil(data.imagenPerfil); // Actualizar la foto en el estado
+        alert("Foto de perfil actualizada correctamente");
+      } catch (error) {
+        console.error("Error al actualizar la imagen de perfil:", error);
+        alert("Error al actualizar la foto de perfil");
+      }
     } else {
-      alert("Por favor, sube una imagen en formato PNG, JPEG o JPG."); // Alerta si el archivo no es válido
+      alert("Por favor, sube una imagen en formato PNG, JPEG o JPG.");
     }
   };
 
-  // Función que guarda los cambios cuando se actualiza el perfil
-  const handleSave = () => {
-    setIsEditing(false); // Cambiamos el estado para salir del modo de edición
-    alert("Perfil Actualizado"); // Mostramos una alerta de perfil actualizado
+  // Manejar guardar cambios en el perfil
+  const handleSave = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/profile/${userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nombreUsuario,
+          correo: correoContacto,
+          moroso: isMoroso,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Error al actualizar el perfil");
+      const data = await response.json();
+      setIsEditing(false);
+      alert("Perfil actualizado correctamente");
+    } catch (error) {
+      console.error("Error al actualizar el perfil:", error);
+      alert("Error al guardar los cambios del perfil");
+    }
   };
 
-  // Renderizado del componente
   return (
     <div className="perfil-usuario-container">
-      {/* Contenedor principal del perfil */}
       <div className="header-perfil">
-        {/* Encabezado del perfil con el nombre del usuario y su rol */}
         <h1>
-          {nombreUsuario} ({userType === "coordinador" ? "Coordinador" : "Alumno"})
+          {nombreUsuario} (
+          {userType === "coordinador" ? "Coordinador" : "Alumno"})
         </h1>
-        {/* Icono de notificaciones con un contador de notificaciones */}
         <div className="notificaciones-icon">
-          <span className="contador-notificaciones">{numNotificaciones}</span>
+          <span className="contador-notificaciones">{notificaciones.length}</span>
           <button
             className="ver-notificaciones-btn"
-            onClick={() => alert(notificaciones.join("\n"))}
+            onClick={() =>
+              alert(
+                isMoroso
+                  ? `Tienes un retraso de aproximadamente ${diasRetraso} días en tus devoluciones.\n\nNotificaciones:\n${notificaciones.join(
+                      "\n"
+                    )}`
+                  : `Notificaciones:\n${notificaciones.join("\n")}`
+              )
+            }
           >
             Ver Notificaciones
           </button>
         </div>
       </div>
       <div className="perfil-content">
-        {/* Contenido del perfil */}
         <div className="perfil-foto">
-          {/* Imagen de perfil del usuario */}
           <img
             src={
               fotoPerfil ||
@@ -101,7 +144,6 @@ const PerfilUsuario = ({ userType }) => {
             alt="Foto de perfil"
             className="foto-perfil"
           />
-          {/* Botón para cambiar la foto de perfil */}
           <label className="file-label">
             Cambiar Foto de Perfil
             <input
@@ -112,26 +154,20 @@ const PerfilUsuario = ({ userType }) => {
             />
           </label>
         </div>
-        {/* Información del usuario */}
         <div className="info-usuario">
           <div className="datos-usuario">
             {isEditing ? (
-              // Si está en modo edición, muestra los campos editables
               <>
                 <p>
-                  <strong>ID: </strong>
-                  <input
-                    type="text"
-                    value={idUsuario}
-                    onChange={(e) => setIdUsuario(e.target.value)}
-                  />
+                  <strong>_id: </strong>
+                  {_id}
                 </p>
                 <p>
-                  <strong>Fecha de creación: </strong>
+                  <strong>Nombre del Alumno: </strong>
                   <input
-                    type="date"
-                    value={fechaCreacion}
-                    onChange={(e) => setFechaCreacion(e.target.value)}
+                    type="text"
+                    value={nombreUsuario}
+                    onChange={(e) => setNombreUsuario(e.target.value)}
                   />
                 </p>
                 <p>
@@ -148,24 +184,23 @@ const PerfilUsuario = ({ userType }) => {
                     value={estadoAlumno}
                     onChange={(e) => setEstadoAlumno(e.target.value)}
                   >
-                    <option value="Habilitado">Habilitado</option>
-                    <option value="No habilitado">No habilitado</option>
+                    <option value="Habilitado">Al día</option>
+                    <option value="Moroso">Moroso</option>
                   </select>
                 </p>
                 <button className="guardar-btn" onClick={handleSave}>
-                  Guardar cambios
+                  Guardar Cambios
                 </button>
               </>
             ) : (
-              // Si no está en modo edición, muestra los datos en formato de solo lectura
               <>
                 <p>
-                  <strong>ID: </strong>
-                  {idUsuario}
+                  <strong>_id: </strong>
+                  {_id}
                 </p>
                 <p>
                   <strong>Fecha de creación: </strong>
-                  {fechaCreacion}
+                  {new Date(fechaCreacion).toLocaleDateString()}
                 </p>
                 <p>
                   <strong>Correo de contacto: </strong>
@@ -175,31 +210,20 @@ const PerfilUsuario = ({ userType }) => {
                   <strong>Estado: </strong>
                   {isMoroso ? "Moroso" : "Al día"}
                 </p>
-                <button
-                  className="editar-btn"
-                  onClick={() => setIsEditing(true)}
-                >
+                <button className="editar-btn" onClick={() => setIsEditing(true)}>
                   Editar Perfil
                 </button>
               </>
             )}
           </div>
-          {/* Nuevo contenedor que muestra si el usuario está bloqueado por mora */}
           {isMoroso && (
             <div className="bloqueado-por-mora">
-              <p>⚠️ El usuario está bloqueado por mora.</p>
+              <p>⚠️ No puedes crear solicitudes porque estás moroso. Devuelve los pendientes para habilitar esta función.</p>
             </div>
           )}
-          {/* Historial de préstamos del usuario */}
           <div className="historial-prestamos">
             <h3>Historial de Préstamos:</h3>
-            <ul>
-              {historialPrestamos.map((prestamo, index) => (
-                <li key={index}>
-                  {prestamo.item} - {prestamo.fecha} - {prestamo.status}
-                </li>
-              ))}
-            </ul>
+            <p>{historialPrestamos}</p>
           </div>
         </div>
       </div>
@@ -208,4 +232,3 @@ const PerfilUsuario = ({ userType }) => {
 };
 
 export default PerfilUsuario;
-

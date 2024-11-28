@@ -58,10 +58,10 @@ function NavBarPanol() {
                         <Nav.Link as={Link} to="/administrar-prestamos" className="nav-item-custom">
                             Administración de Préstamos
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/historial-de-prestamos" className="nav-item-custom">
+                        <Nav.Link as={Link} to="/historial-prestamos" className="nav-item-custom">
                             Historial de préstamos
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/administrarItems" className="nav-item-custom">
+                        <Nav.Link as={Link} to="/administrar-items" className="nav-item-custom">
                             Inventario
                         </Nav.Link>
                         <Nav.Link as={Link} to="/perfil-admin" className="nav-item-custom">

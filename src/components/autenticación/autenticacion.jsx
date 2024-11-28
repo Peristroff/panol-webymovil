@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import './autenticacion.css';
+import axios from "axios";
 
 function Autenticacion() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [correo, setCorreo] = useState('');
+    const [contrasena, setContrasena] = useState('');
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         try {
+            console.log(correo, contrasena);
             const response = await axios.post('http://localhost:3000/login', {
                 correo: correo,
                 contrasena: contrasena
@@ -49,8 +51,8 @@ function Autenticacion() {
                                 <Form.Control
                                     type="email"
                                     placeholder="Ingresar Email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    value={correo}
+                                    onChange={(e) => setCorreo(e.target.value)}
                                     className="rounded-input"
                                 />
                             </Form.Group>
@@ -59,8 +61,8 @@ function Autenticacion() {
                                 <Form.Control
                                     type="password"
                                     placeholder="Contraseña"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    value={contrasena} // Debe ser 'contrasena' sin tilde
+                                    onChange={(e) => setContrasena(e.target.value)}
                                     className="rounded-input"
                                 />
                             </Form.Group>

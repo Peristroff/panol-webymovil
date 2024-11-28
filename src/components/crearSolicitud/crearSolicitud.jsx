@@ -60,4 +60,4 @@ function CrearSolicitud() {
     );
 }
 
-export default crearSolicitud;
+export default CrearSolicitud;

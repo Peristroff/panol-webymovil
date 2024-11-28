@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import AdministrarItems from "./components/administrarItems/administrarItems.jsx";
 import Autenticacion from './components/autenticación/autenticacion.jsx';
 import AdministrarSolicitudes from './components/administrarSolicitudes/administrarSolicitudes.jsx';
@@ -17,9 +17,10 @@ import './App.css';
 
 function App() {
     const [count, setCount] = useState(0);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     // Cambiar el título de la página según la ruta
-    const location = useLocation();
     useEffect(() => {
         const titles = {
             '/': 'Inicio - Administración de Items',
@@ -36,6 +37,12 @@ function App() {
         document.title = titles[location.pathname] || 'Pañol';
     }, [location]);
 
+    useEffect(() => {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (!isLoggedIn) {
+            navigate('/autenticacion');
+        }
+    }, []);
 
     return (
         <>
@@ -45,63 +52,42 @@ function App() {
                 <Route path="/autenticacion" element={<Autenticacion />} />
                 <Route
                     path="/administrar-items"
-                    element={
-                        <ProtectedRoute element={<AdministrarItems />} />
-                    }
-                />
+                    element={<AdministrarItems />}/>
                 <Route
                     path="/administrar-solicitudes"
-                    element={
-                        <ProtectedRoute element={<AdministrarSolicitudes />} />
-                    }
+                    element={<AdministrarSolicitudes />}
                 />
                 <Route
                     path="/administrar-prestamos"
-                    element={
-                        <ProtectedRoute element={<AdministrarPrestamos />} />
-                    }
+                    element={<AdministrarPrestamos />}
                 />
                 <Route
                     path="/administrar-usuarios"
-                    element={
-                        <ProtectedRoute element={<AdministrarUsuarios />} />
-                    }
+                    element={<AdministrarUsuarios />}
                 />
                 <Route
                     path="/historial-prestamos"
-                    element={
-                        <ProtectedRoute element={<HistorialDePrestamos />} />
-                    }
+                    element={<HistorialDePrestamos />}
                 />
                 <Route
                     path="/perfil-usuario"
-                    element={
-                        <ProtectedRoute element={<PerfilUsuario />} />
-                    }
+                    element={<PerfilUsuario />}
                 />
                 <Route
                     path="/perfil-admin"
-                    element={
-                        <ProtectedRoute element={<PerfilAdmin />} />
-                    }
+                    element={<PerfilAdmin />}
                 />
                 <Route
                     path="/crear-solicitud"
-                    element={
-                        <ProtectedRoute element={<CrearSolicitud />} />
-                    }
+                    element={<CrearSolicitud />}
                 />
                 <Route
                     path="/materiales"
-                    element={
-                        <ProtectedRoute element={<Materiales />} />
-                    }
+                    element={<Materiales />}
                 />
                 <Route 
                     path="/" 
-                    element={
-                        <ProtectedRoute element={<Home/>}/>
-                    }
+                    element={<Home/>}
                 />
             </Routes>
         </>
@@ -109,4 +95,3 @@ function App() {
 }
 
 export default App;
-
