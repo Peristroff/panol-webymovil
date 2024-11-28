@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './autenticacion.css';
 import axios from "axios";
 
@@ -22,9 +23,9 @@ function Autenticacion() {
             localStorage.setItem('isLoggedIn', true);
             // Redirige según el tipo de usuario
             if (response.data.user.tipoUsuario === 'admin') {
-                window.location.href = 'http://localhost:5173';
+                window.location.href = '/';
             } else {
-                window.location.href = 'http://localhost:5173/crear-solicitud';
+                window.location.href = '/crear-solicitud';
             }
         } catch (error) {
             if (error.response) {
@@ -43,9 +44,9 @@ function Autenticacion() {
     return (
         <Container className="login-container">
             <Row className="justify-content-md-center">
-                <Col md="4" className="d-flex justify-content-center">
+                <Col md={6}>
                     <div className="login-box">
-                        <h2 className="text-center">Iniciar Sesión</h2>
+                        <h2>Iniciar Sesión</h2>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Control
@@ -67,17 +68,13 @@ function Autenticacion() {
                                 />
                             </Form.Group>
 
-                            <Button variant="primary" type="submit" className="w-100 rounded-button">
+                            <Button variant="primary" type="submit" className="rounded-button">
                                 Acceder
                             </Button>
                         </Form>
-                        <p className="mt-3">
-                            ¿Aún no tienes una cuenta? <a href="/registro" className="link-info">Regístrate aquí</a>
-                        </p>
                     </div>
                 </Col>
             </Row>
-
         </Container>
     );
 }

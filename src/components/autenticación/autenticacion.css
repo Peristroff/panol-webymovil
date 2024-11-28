@@ -1,15 +1,18 @@
 .login-container {
     margin-top: 100px;
     padding: 20px;
-    min-height: 100vh;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url('src/components/img/autenticacionImg.jpg');
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url('src/components/img/autenticacionImg.jpg');
     background-position: left;
-    background-size: cover;
-    position: absolute;
+    background-size:cover;
+    position: absolute; 
+    height: 100vh;
+    overflow: hidden;
+    margin-top: 0%;
+    box-shadow: none;
 }
 
 .login-box {
-    padding: 40px;
+    padding: 100px;
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -19,6 +22,8 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin-left: -20%;
+    margin-top: 20%;
 }
 
 h2 {

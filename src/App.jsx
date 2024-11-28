@@ -12,7 +12,7 @@ import PerfilAdmin from './components/perfilAdmin/perfilAdmin.jsx';
 import Home from "./components/home/home.jsx";
 import CrearSolicitud from "./components/crearSolicitud/crearSolicitud.jsx";
 import Materiales from "./components/catalogo/materiales.jsx";
-import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure this line is present
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
@@ -25,27 +25,29 @@ function App() {
         const titles = {
             '/': 'Inicio - Administración de Items',
             '/autenticacion': 'Autenticación',
-            '/administrar-prestamos': 'Administración de Préstamos',
+            '/administrar-items': 'Administración de Items',
             '/administrar-solicitudes': 'Administración de Solicitudes',
-            '/historial-de-prestamos': 'Historial de Préstamos',
-            '/perfil-admin': 'Perfil de Coordinador',
+            '/administrar-prestamos': 'Administración de Préstamos',
+            '/administrar-usuarios': 'Administración de Usuarios',
+            '/historial-prestamos': 'Historial de Préstamos',
+            '/perfil-admin': 'Perfil de Administrador',
+            '/perfil-usuario': 'Perfil de Usuario',
             '/crear-solicitud': 'Crear Solicitud',
             '/materiales': 'Materiales',
-            '/perfil-alumno': 'Perfil de Alumno',
+            '/home': 'Inicio',
         };
-        // Nombre por defecto si no se encuentra la ruta
         document.title = titles[location.pathname] || 'Pañol';
     }, [location]);
 
     useEffect(() => {
         const isLoggedIn = localStorage.getItem('isLoggedIn');
         if (!isLoggedIn) {
-            navigate('/autenticacion');
-        }
+            window.location.href = '/autenticacion';
+            }
     }, []);
 
     return (
-        <>
+        <div className="App">
             {/* No renderizar navbar si es la página de autenticación o inicio*/}
             {location.pathname === '/autenticacion' || location.pathname === '/' ? null : <NavBarPanol/>}
             <Routes>
@@ -90,7 +92,7 @@ function App() {
                     element={<Home/>}
                 />
             </Routes>
-        </>
+        </div>
     );
 }
 
